@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>URL Saver</title>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script src="https://cdn.jsdelivr.net/gh/Merret/UsefulJS@0.4.2/js/xhr.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/Merret/UsefulJS@0.4.2/js/urldata.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+<style>
+.button {
+	cursor: pointer
+}
+</style>
+</head>
+<body>
+<div class="w3-panel w3-round w3-card w3-white" style="position:fixed; display: none; z-index: 2;" id="detail"> <span class="w3-margin">Title: </span>
+  <input class="w3-margin" id="dTitle" type="text">
+  <br>
+  <span class="w3-margin">URL: </span>
+  <input class="w3-margin" id="dURL" type="text">
+  <br>
+  <div id="dBtn"> </div>
+</div>
+<div class="w3-card w3-padding w3-display-container">
+  <p>
+    <label class="w3-text-blue"><b>Add URL</b></label>
+    <input class="w3-input w3-border" id="url" type="text">
+  </p>
+  <span>
+  <button class="w3-btn w3-blue w3-round" onclick="addURL()">Add</button>
+  </span> <span class="w3-display-bottomright w3-padding"> <a target="_blank" class="w3-btn w3-green w3-round" id="share">Share</a> </span> </div>
+<div id="list" class="w3-container">
+  <table id="tb" style="width: 100%;text-align: center;">
+  </table>
+</div>
+<script>
+new ClipboardJS('.copy');
+</script>
+</body>
+</html>
