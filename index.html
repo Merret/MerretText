@@ -23,7 +23,11 @@ textarea {
 <body>
 <div id="editor" class="w3-container">
   <textarea id="codeZone" class="w3-code w3-round-large w3-card notranslate" style="width: 100%; background-color: #41444e; color: #fff" rows="15"></textarea>
-  <button class="w3-button w3-round-large" onclick="ai('html')">Indent</button>
+  <select class="w3-select w3-round-large" id="opt">
+    <option value="js" selected>Javascript</option>
+    <option value="html">HTML</option>
+  </select>
+  <button class="w3-button w3-round-large" onclick="ai(document.getElementById('opt').value)">Indent</button>
 </div>
 <script src="https://www.w3schools.com/lib/w3codecolor.js"></script> 
 <script>
