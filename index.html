@@ -8,6 +8,7 @@
 <script src="https://cdn.jsdelivr.net/gh/Merret/UsefulJS@0.4.2/js/xhr.min.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/Merret/UsefulJS@0.4.2/js/urldata.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/zebzhao/indent.js@0.3.4/lib/indent.min.js"></script>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
 <style>
@@ -21,13 +22,21 @@ textarea {
 </head>
 <body>
 <div id="editor" class="w3-container">
-  <textarea class="w3-code w3-round-large w3-card notranslate" style="width: 100%; background-color: #41444e; color: #fff" rows="15"></textarea>
+  <textarea id="codeZone" class="w3-code w3-round-large w3-card notranslate" style="width: 100%; background-color: #41444e; color: #fff" rows="15"></textarea>
+  <button class="w3-button w3-round-large" onclick="ai('html')">Indent</button>
 </div>
 <script src="https://www.w3schools.com/lib/w3codecolor.js"></script> 
 <script>
 document.getElementById("editor").focus();
 new ClipboardJS('.copy');
-
+function ai(docType="js") {
+  if(docType="html") {
+    document.getElementById("codeZone").value = indent.html(document.getElementById("codeZone").value, {tabString: '    '});
+  }
+  if(docType="js") {
+    document.getElementById("codeZone").value = indent.js(document.getElementById("codeZone").value, {tabString: '    '});
+  }
+}
 </script>
 </body>
 </html>
