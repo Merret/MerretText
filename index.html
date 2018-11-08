@@ -33,18 +33,22 @@ textarea {
 </div>
 <script src="https://www.w3schools.com/lib/w3codecolor.js"></script> 
 <script>
+ai();
 document.getElementById("codeZone").focus();
 new ClipboardJS('.copy');
-
+document.getElementById("codeZone").onkeyup = function() {w3CodeColor();};
 function ai(docType="js") {
   if(docType="html") {
     document.getElementById("codeZone").value = indent.html(document.getElementById("codeZone").value, {tabString: '    '});
+    document.getElementById("codeZone").className = "w3-code w3-round-large w3-card notranslate htmlHigh";
   }
   if(docType="js") {
     document.getElementById("codeZone").value = indent.js(document.getElementById("codeZone").value, {tabString: '    '});
+    document.getElementById("codeZone").className = "w3-code w3-round-large w3-card notranslate jsHigh";
   }
   if(docType="css") {
     document.getElementById("codeZone").value = indent.css(document.getElementById("codeZone").value, {tabString: '    '});
+    document.getElementById("codeZone").className = "w3-code w3-round-large w3-card notranslate cssHigh";
   }
 }
 </script>
