@@ -30,8 +30,8 @@
             <option value="html">HTML</option>
             <option value="css">CSS</option>
         </select>
-        <button class="w3-button w3-round-large" onclick="ai(document.getElementById('opt').value)">Indent</button>
-        <button class="w3-button w3-round-large copy" data-clipboard-target="#codeZone">Copy</button>
+        <button id="indentBtn" class="w3-button w3-round-large" onclick="ai(document.getElementById('opt').value)">Indent</button>
+        <button id="copyBtn" class="w3-button w3-round-large copy" data-clipboard-target="#codeZone" onclick="this.innerHTML='Copied';setTimeout(function() {document.getElementById('copyBtn').innerHTML='Copy'}, 1500)">Copy</button>
         <button id="htmlPreview" class="w3-button w3-round-large" onclick="htmlPreview()" style="display: none">Preview</button>
     </div>
     <script src="https://www.w3schools.com/lib/w3codecolor.js"></script>
