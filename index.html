@@ -19,6 +19,15 @@
     </style>
 </head>
 <body>
+    <!-- side bar -->
+    <div class="w3-sidebar w3-bar-block w3-white w3-animate-left" style="display:none;z-index:5" id="sB">
+        <button class="w3-bar-item w3-button" onclick="closeMenu()">Close</button>
+        <a href="#" class="w3-bar-item w3-button">Link 1</a>
+        <a href="#" class="w3-bar-item w3-button">Link 2</a>
+        <a href="#" class="w3-bar-item w3-button">Link 3</a>
+    </div>
+    <div class="w3-overlay w3-animate-opacity button" onclick="closeMenu()" id="sBol"></div>
+    <!-- head bar -->
     <div id="bar">
         <i class="fas fa-bars fa-2x button w3-margin" onclick="openMenu()"></i>
         <h3 class="w3-margin w3-right" style="display: inline-block; font-family: Arial, Helvetica">Merret<b>Text</b></h3>
@@ -64,6 +73,14 @@
         }
         function htmlPreview() {
             window.open("data:text/html;charset=UTF-8,"+document.getElementById("codeZone").value);
+        }
+        function openMenu() {
+            document.getElementById('sB').style.display = "block";
+            document.getElementById('sBol').style.display = "block";
+        }
+        function closeMenu() {
+            document.getElementById('sB').style.display = "none";
+            document.getElementById('sBol').style.display = "none";
         }
     </script>
 </body>
