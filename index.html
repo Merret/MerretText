@@ -29,6 +29,10 @@
     </style>
 </head>
 <body>
+    <!-- info card -->
+    <div id="card" class="w3-card w3-white" style="z-index: 10; position: fixed; margin:  5% 25%; padding: 5%; width: 50%; display: none">
+        <h2 id="cardHead">Settings</h2>
+    </div>
     <!-- side bar -->
     <div class="w3-sidebar w3-bar-block w3-white w3-animate-left" style="display:none;z-index:5" id="sB">
         <button class="w3-bar-item w3-button" onclick="closeMenu()">Close</button>
@@ -42,6 +46,7 @@
         <i class="fas fa-bars fa-2x button w3-margin" onclick="openMenu()"></i>
         <h3 class="w3-margin w3-right" style="display: inline-block; font-family: Arial, Helvetica">Merret<b>Text</b></h3>
     </div>
+    <!-- editor -->
     <div id="editor" class="w3-container">
         <textarea id="codeZone" class="w3-code w3-round-large w3-card notranslate" style="width: 100%; background-color: #41444e; color: #fff; font-weight: 500; font-family: 'Source Code Pro', monospace;" rows="20" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></textarea>
         <select class="w3-select w3-round-large" style="width: 200px" id="opt" onchange="optChange()">
