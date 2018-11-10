@@ -9,7 +9,6 @@
     <script src="https://cdn.jsdelivr.net/gh/Merret/UsefulJS@0.4.2/js/urldata.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/zebzhao/indent.js@0.3.4/lib/indent.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/Merret/MerretText@0.1/js/w3cc.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet">
     <style>
@@ -53,7 +52,6 @@
                 var win=window.open();win.document.write(document.getElementById('codeZone').value);
             }
         };
-        document.getElementById("codeZone").onkeyup = function() {w3CodeColor();};
         function ai(docType="js") {
             if(docType=="html") {
                 document.getElementById("codeZone").value = indent.html(document.getElementById("codeZone").value, {tabString: '    '});
