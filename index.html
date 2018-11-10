@@ -30,8 +30,12 @@
 </head>
 <body>
     <!-- info card -->
-    <div id="card" class="w3-card w3-white" style="z-index: 10; position: fixed; margin:  5% 25%; padding: 5%; width: 50%; display: none">
+    <div id="card" class="w3-card w3-white" style="z-index: 10; position: fixed; margin:  5% 15%; padding: 5%; width: 70%; display: none">
         <h2 id="cardHead">Settings</h2>
+        <br>
+        <h3>Global</h3>
+        <hr>
+        <span>Webpage Background: </span><input id="webBg" type="text">
     </div>
     <!-- side bar -->
     <div class="w3-sidebar w3-bar-block w3-white w3-animate-left" style="display:none;z-index:5" id="sB">
@@ -105,7 +109,7 @@
             
         }
         function setting() {
-            
+            document.getElementById('card').style.display = "block";
         }
     </script>
 </body>
