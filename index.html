@@ -48,6 +48,11 @@
         ai();
         document.getElementById("codeZone").focus();
         new ClipboardJS('.copy');
+        if(navigator.userAgent.indexOf('Chrome') > -1) {
+            document.getElementById("htmlPreview").onclick = function() {
+                var win=window.open();win.document.write(document.getElementById('codeZone').value);
+            }
+        };
         document.getElementById("codeZone").onkeyup = function() {w3CodeColor();};
         function ai(docType="js") {
             if(docType=="html") {
