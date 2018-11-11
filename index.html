@@ -88,7 +88,7 @@
         </div>
     </div>
     <!-- side bar -->
-    <div class="w3-sidebar w3-bar-block w3-white w3-animate-left" style="display:none;z-index:5" id="sB">
+    <div id="sB" class="w3-sidebar w3-bar-block w3-white w3-animate-left" style="display: none; z-index: 5">
         <button class="w3-bar-item w3-button" onclick="closeMenu()">Close</button>
         <a href="javascript:closeMenu();newDoc()" class="w3-bar-item w3-button">New Doc</a>
         <a href="javascript:closeMenu();setting(1)" class="w3-bar-item w3-button">Setting</a>
@@ -119,7 +119,7 @@
         new ClipboardJS('.copy');
         if(navigator.userAgent.indexOf('Chrome') > -1) {
             document.getElementById("htmlPreview").onclick = function() {
-                var win=window.open();win.document.write(document.getElementById('codeZone').value);
+                var win = window.open();win.document.write(document.getElementById('codeZone').value);
             }
         };
         function ai(docType="js") {
@@ -182,8 +182,15 @@
             }
         }
         function settingReload() {
+            /* Global Settings */
             document.body.style.backgroundColor = "#"+document.getElementById("webBg").value;
+            /* Editor Settings */
             document.getElementById("codeZone").style.backgroundColor = "#"+document.getElementById("edtBg").value;
+            document.getElementById("codeZone").rows = document.getElementById("edtRs").value;
+            /* Font Settings */
+            document.getElementById("codeZone").style.fontSize = document.getElementById("fntSz").value+"px";
+            document.getElementById("codeZone").style.fontWeight = document.getElementById("fntWt").value;
+            document.getElementById("codeZone").style.color = "#"+document.getElementById("fntCr").value;
         }
     </script>
 </body>
