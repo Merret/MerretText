@@ -36,20 +36,52 @@
         <div style="position: absolute; max-height: 70%; overflow: scroll">
             <h3>Global</h3>
             <hr>
-            <span>Webpage Background Color: </span><input id="webBg" class="jscolor" value="ffffff"><br>
+            <table>
+                <tr>
+                    <td><span>Webpage Background Color: </span></td>
+                    <td><input id="webBg" class="jscolor" value="ffffff"></td>
+                </tr>
+            </table>
             <br>
             <h3>Editor</h3>
             <hr>
-            <span>Selection Color: </span><input id="slc" class="jscolor" value="88aadd"><br>
-            <span>Editor Background Color: </span><input id="edtBg" class="jscolor" value="41444e"><br>
-            <span>Rows: </span><input id="edtRs" type="number" value="20"><br>
+            <table>
+                <tr>
+                    <td><span>Selection Color: </span></td>
+                    <td><input id="slc" class="jscolor" value="88aadd"></td>
+                </tr>
+                <tr>
+                    <td><span>Editor Background Color: </span></td>
+                    <td><input id="edtBg" class="jscolor" value="41444e"></td>
+                </tr>
+                <tr>
+                    <td><span>Rows: </span></td>
+                    <td><input id="edtRs" type="number" value="20"></td>
+                </tr>
+            </table>
             <br>
             <h3>Font</h3>
             <hr>
-            <span>Font Type: </span><input id="fntTp" type="text" value="Source Code Pro"><br>
-            <span>Font Size: </span><input id="fntSz" type="number" value="18"><br>
-            <span>Font Weight: </span><input id="fntWt" type="number" value="500"><br>
-            <span>Font Color: </span><input id="fntCr" class="jscolor" value="ffffff"><br>
+            <table>
+                <tr>
+                    <td><span>Font Type: </span></td>
+                    <td><input id="fntTp" type="text" value="Source Code Pro"></td>
+                </tr>
+                <tr>
+                    <td><span>Font Size: </span></td>
+                    <td><input id="fntSz" type="number" value="18"></td>
+                </tr>
+                <tr>
+                    <td><span>Font Weight: </span></td>
+                    <td><input id="fntWt" type="number" value="500"></td>
+                </tr>
+                <tr>
+                    <td><span>Font Color: </span></td>
+                    <td><input id="fntCr" class="jscolor" value="ffffff"></td>
+                </tr>
+            </table>
+            <br>
+            <button class="w3-button w3-round-large w3-margin" onclick="setting()">Apply</button>
         </div>
     </div>
     <!-- side bar -->
@@ -124,7 +156,11 @@
             
         }
         function setting() {
-            document.getElementById('card').style.display = "block";
+            if(document.getElementById('card').style.display == "none") {
+                document.getElementById('card').style.display = "block";
+            } else {
+                document.getElementById('card').style.display = "none"
+            }
         }
     </script>
 </body>
