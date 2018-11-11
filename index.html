@@ -81,6 +81,8 @@
                 </tr>
             </table>
             <br>
+        </div>
+        <div style="position: absolute; bottom: 2%; right: 2%">
             <button class="w3-button w3-round-large w3-margin w3-green" onclick="setting(2)">Apply</button>
             <button class="w3-button w3-round-large w3-margin w3-red" onclick="setting(0)">Cancel</button>
         </div>
@@ -92,7 +94,7 @@
         <a href="javascript:closeMenu();setting(1)" class="w3-bar-item w3-button">Setting</a>
         <a href="license" class="w3-bar-item w3-button">License</a>
     </div>
-    <div class="w3-overlay w3-animate-opacity" onclick="closeMenu()" id="sBol"></div>
+    <div class="w3-overlay w3-animate-opacity" style="display: none" onclick="closeAll()" id="sBol"></div>
     <!-- head bar -->
     <div id="bar">
         <i class="fas fa-bars fa-2x button w3-margin" onclick="openMenu()"></i>
@@ -154,26 +156,34 @@
         }
         function Barr() {
             if(document.getElementById('sBol').style.display == "none") {
-            document.getElementById('sBol').style.display = "block";
+                document.getElementById('sBol').style.display = "block";
             } else {
                 document.getElementById('sBol').style.display = "none";
             }
+        }
+        function closeAll() {
+            document.getElementById('sBol').style.display = "none";
+            document.getElementById('card').style.display = "none";
+            document.getElementById('sB').style.display = "none";
         }
         function newDoc() {
             
         }
         function setting(s=0) {
             if(s == 0) {
+                Barr();
                 document.getElementById('card').style.display = "none";
             } else if(s == 1) {
                 document.getElementById('card').style.display = "block";
             } else if(s == 2) {
                 settingReload();
+                Barr();
                 document.getElementById('card').style.display = "none";
             }
         }
         function settingReload() {
             document.body.style.backgroundColor = "#"+document.getElementById("webBg").value;
+            document.getElementById("codeZone").style.backgroundColor = "#"+document.getElementById("edtBg").value;
         }
     </script>
 </body>
