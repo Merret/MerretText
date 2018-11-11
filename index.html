@@ -30,12 +30,27 @@
 </head>
 <body>
     <!-- info card -->
-    <div id="card" class="w3-card w3-white" style="z-index: 10; position: fixed; margin:  5% 15%; padding: 5%; width: 70%; display: none">
+    <div id="card" class="w3-card w3-white" style="z-index: 10; position: fixed; margin:  5% 15%; padding: 5%; width: 70%; height: 70%; display: none">
         <h2 id="cardHead">Settings</h2>
         <br>
-        <h3>Global</h3>
-        <hr>
-        <span>Webpage Background: </span><input id="webBg" type="text">
+        <div style="position: absolute; max-height: 70%; overflow: scroll">
+            <h3>Global</h3>
+            <hr>
+            <span>Webpage Background Color: </span><input id="webBg" class="jscolor" value="ffffff"><br>
+            <br>
+            <h3>Editor</h3>
+            <hr>
+            <span>Selection Color: </span><input id="slc" class="jscolor" value="88aadd"><br>
+            <span>Editor Background Color: </span><input id="edtBg" class="jscolor" value="41444e"><br>
+            <span>Rows: </span><input id="edtRs" type="number" value="20"><br>
+            <br>
+            <h3>Font</h3>
+            <hr>
+            <span>Font Type: </span><input id="fntTp" type="text" value="Source Code Pro"><br>
+            <span>Font Size: </span><input id="fntSz" type="number" value="18"><br>
+            <span>Font Weight: </span><input id="fntWt" type="number" value="500"><br>
+            <span>Font Color: </span><input id="fntCr" class="jscolor" value="ffffff"><br>
+        </div>
     </div>
     <!-- side bar -->
     <div class="w3-sidebar w3-bar-block w3-white w3-animate-left" style="display:none;z-index:5" id="sB">
@@ -62,7 +77,7 @@
         <button id="copyBtn" class="w3-button w3-round-large copy" data-clipboard-target="#codeZone" onclick="this.innerHTML='Copied';setTimeout(function() {document.getElementById('copyBtn').innerHTML='Copy'}, 1500)">Copy</button>
         <button id="htmlPreview" class="w3-button w3-round-large" onclick="htmlPreview()" style="display: none">Preview</button>
     </div>
-    <script src="https://www.w3schools.com/lib/w3codecolor.js"></script>
+    <script src="js/jscolor.js"></script>
     <script>
         ai();
         document.getElementById("codeZone").focus();
