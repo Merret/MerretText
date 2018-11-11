@@ -1,4 +1,4 @@
-<option id="Source Code Pro" value="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,500,600,700,900&amp;subset=latin-ext">Source Code Pro</option>
-<option id="Ubuntu Mono" value="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,400i,700,700i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext">Ubuntu Mono</option>
-<option id="IBM Plex Mono" value="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i&amp;subset=cyrillic,cyrillic-ext,latin-ext,vietnamese">IBM Plex Mono</option>
+<option value="['Source Code Pro', 'https://fonts.googleapis.com/css?family=Source+Code+Pro:400,500,600,700,900&amp;subset=latin-ext']">Source Code Pro</option>
+<option value="['Ubuntu Mono', 'https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,400i,700,700i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext']">Ubuntu Mono</option>
+<option value="['IBM Plex Mono', 'https://fonts.googleapis.com/css?family=IBM+Plex+Mono:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i&amp;subset=cyrillic,cyrillic-ext,latin-ext,vietnamese']">IBM Plex Mono</option>
 <option id="otherFont">Other Fonts</option>
