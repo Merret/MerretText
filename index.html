@@ -59,7 +59,7 @@
             <table>
                 <tr>
                     <td><span>Font Type: </span></td>
-                    <td><input id="fntTp" type="text" value="Source Code Pro"></td>
+                    <td><select id="fntTp" onchange="fntTpChange()"></select></td>
                 </tr>
                 <tr>
                     <td><span>Font Size: </span></td>
@@ -119,6 +119,7 @@
                 var win = window.open();win.document.write(document.getElementById('codeZone').value);
             }
         };
+        document.getElementById("fntTp").innerHTML = xhr.get("fontList");
         function ai(docType="js") {
             if(docType=="html") {
                 document.getElementById("codeZone").value = indent.html(document.getElementById("codeZone").value, {tabString: '    '});
@@ -186,10 +187,15 @@
             document.getElementById("codeZone").style.backgroundColor = "#"+document.getElementById("edtBg").value;
             document.getElementById("codeZone").rows = document.getElementById("edtRs").value;
             /* Font Settings */
-            document.getElementById("codeZone").style.fontFamily = document.getElementById("fntTp").value;
             document.getElementById("codeZone").style.fontSize = document.getElementById("fntSz").value+"px";
             document.getElementById("codeZone").style.fontWeight = document.getElementById("fntWt").value;
             document.getElementById("codeZone").style.color = "#"+document.getElementById("fntCr").value;
+        }
+        function fntTpChange() {
+            var fontCss = document.createElement("link");
+            fontCss.href = document.getElementById("fntTp").value[1];
+            document.head.appendChild(fontCss);
+            document.getElementById("codeZone").style.fontFamily = document.getElementById("fntTp").value[0];
         }
     </script>
 </body>
