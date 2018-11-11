@@ -20,12 +20,6 @@
         .button {
             cursor: pointer;
         }
-        ::selection {
-            background: #88aadd;
-        }
-        ::-moz-selection {
-            background: #88aadd;
-        }
     </style>
 </head>
 <body>
@@ -112,6 +106,9 @@
         <button id="copyBtn" class="w3-button w3-round-large copy" data-clipboard-target="#codeZone" onclick="this.innerHTML='Copied';setTimeout(function() {document.getElementById('copyBtn').innerHTML='Copy'}, 1500)">Copy</button>
         <button id="htmlPreview" class="w3-button w3-round-large" onclick="htmlPreview()" style="display: none">Preview</button>
     </div>
+    <style id="style-slt">
+        ::selection{background:#8ad}::-moz-selection{background:#8ad}
+    </style>
     <script src="js/jscolor.js"></script>
     <script>
         ai();
@@ -185,6 +182,7 @@
             /* Global Settings */
             document.body.style.backgroundColor = "#"+document.getElementById("webBg").value;
             /* Editor Settings */
+            document.getElementById("style-slt").innerHTML = "::selection{background:#"+document.getElementById("slc").value+"}::-moz-selection{background:#"+document.getElementById("slc").value+"}";
             document.getElementById("codeZone").style.backgroundColor = "#"+document.getElementById("edtBg").value;
             document.getElementById("codeZone").rows = document.getElementById("edtRs").value;
             /* Font Settings */
