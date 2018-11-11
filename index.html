@@ -193,9 +193,9 @@
         }
         function fntTpChange() {
             var fontCss = document.createElement("link");
-            fontCss.href = document.getElementById("fntTp").value[1];
+            fontCss.href = JSON.parse(document.getElementById("fntTp").value)[1];
             document.head.appendChild(fontCss);
-            document.getElementById("codeZone").style.fontFamily = document.getElementById("fntTp").value[0];
+            document.getElementById("codeZone").style.fontFamily = JSON.parse(document.getElementById("fntTp").value)[0];
         }
     </script>
 </body>
