@@ -187,15 +187,19 @@
             document.getElementById("codeZone").style.backgroundColor = "#"+document.getElementById("edtBg").value;
             document.getElementById("codeZone").rows = document.getElementById("edtRs").value;
             /* Font Settings */
+            document.getElementById("codeZone").style.fontFamily = JSON.parse(document.getElementById("fntTp").value)[0];
             document.getElementById("codeZone").style.fontSize = document.getElementById("fntSz").value+"px";
             document.getElementById("codeZone").style.fontWeight = document.getElementById("fntWt").value;
             document.getElementById("codeZone").style.color = "#"+document.getElementById("fntCr").value;
         }
         function fntTpChange() {
+            var dt = JSON.parse(document.getElementById("fntTp").value);
+            if(True) {
             var fontCss = document.createElement("link");
-            fontCss.href = JSON.parse(document.getElementById("fntTp").value)[1];
+            fontCss.href = dt[1];
+            fontCss.rel = "stylesheet";
             document.head.appendChild(fontCss);
-            document.getElementById("codeZone").style.fontFamily = JSON.parse(document.getElementById("fntTp").value)[0];
+            }
         }
     </script>
 </body>
