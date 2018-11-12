@@ -27,7 +27,7 @@
     <div id="card" class="w3-card w3-white" style="z-index: 10; position: fixed; margin:  5% 15%; padding: 5%; width: 70%; height: 80%; display: none">
         <h2 id="cardHead">Settings</h2>
         <br>
-        <div style="position: relative; max-height: 70%; overflow: scroll">
+        <div style="position: relative; max-height: 70%; overflow: auto">
             <h3>Global</h3>
             <hr>
             <table>
@@ -204,10 +204,13 @@
             document.getElementById("codeZone").style.color = "#"+document.getElementById("fntCr").value;
         }
         function fntTpChange() {
-            var fontCss = document.createElement("link");
-            fontCss.href = JSON.parse(document.getElementById("fntTp").value)[1];
-            fontCss.rel = "stylesheet";
-            document.head.appendChild(fontCss);
+            if(!document.getElementById(JSON.parse(document.getElementById("fntTp").value)[0])) {
+                var fontCss = document.createElement("link");
+                fontCss.href = JSON.parse(document.getElementById("fntTp").value)[1];
+                fontCss.rel = "stylesheet";
+                fontCss.id = JSON.parse(document.getElementById("fntTp").value)[0]
+                document.head.appendChild(fontCss);
+            }
         }
     </script>
 </body>
