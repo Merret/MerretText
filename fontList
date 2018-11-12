@@ -1,7 +1,13 @@
-<option value='["Source Code Pro", "https://fonts.googleapis.com/css?family=Source+Code+Pro:400,500,600,700,900&amp;subset=latin-ext"]'>Source Code Pro</option>
+<option disabled>Monospace Fonts</option>
+<option value='["Source Code Pro", "https://fonts.googleapis.com/css?family=Source+Code+Pro:400,500,600,700,900&amp;subset=latin-ext"]' selected>Source Code Pro</option>
 <option value='["Ubuntu Mono", "https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext"]'>Ubuntu Mono</option>
 <option value='["IBM Plex Mono", "https://fonts.googleapis.com/css?family=IBM+Plex+Mono:100,200,300,400,500,600,700&amp;subset=cyrillic,cyrillic-ext,latin-ext,vietnamese"]'>IBM Plex Mono</option>
 <option value='["Roboto Mono", "https://fonts.googleapis.com/css?family=Roboto+Mono:100,300,400,500,700&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese"]'>Roboto Mono</option>
 <option value='["PT Mono", "https://fonts.googleapis.com/css?family=PT+Mono&amp;subset=cyrillic,cyrillic-ext,latin-ext"]'>PT Mono</option>
 <option value='["Overpass Mono", "https://fonts.googleapis.com/css?family=Overpass+Mono:300,400,600,700&amp;subset=latin-ext"]'>Overpass Mono</option>
+<option disabled>Handwriting Fonts</option>
+<option value='["Neucha", "https://fonts.googleapis.com/css?family=Neucha&amp;subset=cyrillic"]'>Neucha</option>
+<option value='["Patrick Hand", "https://fonts.googleapis.com/css?family=Patrick+Hand&amp;subset=latin-ext,vietnamese"]'>Patrick Hand</option>
+<option value='["Mali", "https://fonts.googleapis.com/css?family=Mali:200,300,400,500,600,700&amp;subset=latin-ext,thai,vietnamese"]'>Mali</option>
+<option disabled>Other Fonts</option>
 <option id="otherFont" value="otherFont">Other Fonts</option>
