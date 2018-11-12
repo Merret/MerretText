@@ -2,4 +2,5 @@
 <option value='["Ubuntu Mono", "https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext"]'>Ubuntu Mono</option>
 <option value='["IBM Plex Mono", "https://fonts.googleapis.com/css?family=IBM+Plex+Mono:100,200,300,400,500,600,700&amp;subset=cyrillic,cyrillic-ext,latin-ext,vietnamese"]'>IBM Plex Mono</option>
 <option value='["Roboto Mono", "https://fonts.googleapis.com/css?family=Roboto+Mono:100,300,400,500,700&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese"]'>Roboto Mono</option>
+<option value='["PT Mono", "https://fonts.googleapis.com/css?family=PT+Mono&amp;subset=cyrillic,cyrillic-ext,latin-ext"]'>PT Mono</option>
 <option id="otherFont">Other Fonts</option>
