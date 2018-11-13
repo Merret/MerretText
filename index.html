@@ -233,9 +233,9 @@
                     var xhrData = "code="+source;
                     var backData = JSON.parse(xhr.post("https://www.10bestdesign.com/dirtymarkup/api/css", xhrData, "application/x-www-form-urlencoded"));
                 }
-                document.getElementById("indentBtn").value = backData.clean;
+                document.getElementById("codeZone").value = backData.clean;
                 document.getElementById("indentBtn").innerHTML = "Indented";
-                setTimeout(function(){document.getElementById("codeZone").innerHTML = "Indent";}, 1500);
+                setTimeout(function(){document.getElementById("indentBtn").innerHTML = "Indent";}, 1500);
                 
             }
         </script>
