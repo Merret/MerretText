@@ -215,7 +215,7 @@
                 if(JSON.parse(document.getElementById("fntTp").value)=="otherFont") {}
             }
             function advIndent(docType="txt") {
-                document.getElementById("codeZone").innerHTML = "Indenting";
+                document.getElementById("indentBtn").innerHTML = "Indenting";
                 if(docType=="txt") {
                     document.getElementById("codeZone").value = indent.html(document.getElementById("codeZone").value, {tabString: '    '});
                 } else {
@@ -233,8 +233,8 @@
                     var xhrData = "code="+source;
                     var backData = JSON.parse(xhr.post("https://www.10bestdesign.com/dirtymarkup/api/css", xhrData, "application/x-www-form-urlencoded"));
                 }
-                document.getElementById("codeZone").value = backData.clean;
-                document.getElementById("codeZone").innerHTML = "Indented";
+                document.getElementById("indentBtn").value = backData.clean;
+                document.getElementById("indentBtn").innerHTML = "Indented";
                 setTimeout(function(){document.getElementById("codeZone").innerHTML = "Indent";}, 1500);
                 
             }
