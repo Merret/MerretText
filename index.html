@@ -223,15 +223,15 @@
     }
     if(docType=="html") {
         var xhrData = "code="+source+"&allow-proprietary-attribs=true";
-        var backData = JSON.parse(xhr.post("https://www.10bestdesign.com/dirtymarkup/api/html", xhrData));
+        var backData = JSON.parse(xhr.post("https://www.10bestdesign.com/dirtymarkup/api/html", xhrData, "application/x-www-form-urlencoded"));
     }
     if(docType=="js") {
         var xhrData = "code="+source;
-        var backData = JSON.parse(xhr.post("https://www.10bestdesign.com/dirtymarkup/api/js", xhrData));
+        var backData = JSON.parse(xhr.post("https://www.10bestdesign.com/dirtymarkup/api/js", xhrData, "application/x-www-form-urlencoded"));
     }
     if(docType=="css") {
         var xhrData = "code="+source;
-        var backData = JSON.parse(xhr.post("https://www.10bestdesign.com/dirtymarkup/api/css", xhrData));
+        var backData = JSON.parse(xhr.post("https://www.10bestdesign.com/dirtymarkup/api/css", xhrData, "application/x-www-form-urlencoded"));
     }
     document.getElementById("codeZone").value = backData.clean;
     document.getElementById("codeZone").innerHTML = "Indented";
