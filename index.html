@@ -104,7 +104,7 @@
             <option value="html">HTML</option>
             <option value="css">CSS</option>
         </select>
-        <button id="indentBtn" class="w3-button w3-round-large" onclick="ai(document.getElementById('opt').value)">Indent</button>
+        <button id="indentBtn" class="w3-button w3-round-large" onclick="advIndent(document.getElementById('opt').value)">Indent</button>
         <button id="copyBtn" class="w3-button w3-round-large copy" data-clipboard-target="#codeZone" onclick="this.innerHTML='Copied';setTimeout(function() {document.getElementById('copyBtn').innerHTML='Copy'}, 1500)">Copy</button>
         <button id="htmlPreview" class="w3-button w3-round-large" onclick="htmlPreview()" style="display: none">Preview</button>
     </div>
@@ -214,6 +214,30 @@
             }
             if(JSON.parse(document.getElementById("fntTp").value)=="otherFont") {}
         }
+        function advIndent(docType="txt") {
+    document.getElementById("codeZone").innerHTML = "Indenting";
+    if(docType=="txt") {
+        document.getElementById("codeZone").value = indent.html(document.getElementById("codeZone").value, {tabString: '    '});
+    } else {
+        var source = indent.html(document.getElementById("codeZone").value, {tabString: ''});
+    }
+    if(docType=="html") {
+        var xhrData = "code="+source+"&allow-proprietary-attribs=true";
+        var backData = JSON.parse(xhr.post("https://www.10bestdesign.com/dirtymarkup/api/html", xhrData));
+    }
+    if(docType=="js") {
+        var xhrData = "code="+source;
+        var backData = JSON.parse(xhr.post("https://www.10bestdesign.com/dirtymarkup/api/js", xhrData));
+    }
+    if(docType=="css") {
+        var xhrData = "code="+source;
+        var backData = JSON.parse(xhr.post("https://www.10bestdesign.com/dirtymarkup/api/css", xhrData));
+    }
+    document.getElementById("codeZone").value = backData.clean;
+    document.getElementById("codeZone").innerHTML = "Indented";
+    setTimeout(function(){document.getElementById("codeZone").innerHTML = "Indent";}, 1500);
+    
+}
     </script>
 </body>
 </html>
