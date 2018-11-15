@@ -222,7 +222,7 @@
                     var source = indent.html(document.getElementById("codeZone").value, {tabString: ''});
                 }
                 if(docType=="html") {
-                    var xhrData = "code="+source+"&allow-proprietary-attribs=true";
+                    var xhrData = "code="+source+"&allow-proprietary-attribs=true&indent=4";
                     var backData = JSON.parse(xhr.post("https://www.10bestdesign.com/dirtymarkup/api/html", encodeURI(xhrData), "application/x-www-form-urlencoded"));
                 }
                 if(docType=="js") {
