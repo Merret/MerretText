@@ -114,6 +114,7 @@
         <script src="js/jscolor.js"></script>
         <script>
             ai();
+            if(localStorage.autoSave) {document.getElementById("codeZone").value=localStorage.autoSave}
             document.getElementById("codeZone").focus();
             new ClipboardJS('.copy');
             if(navigator.userAgent.indexOf('Chrome') > -1) {
