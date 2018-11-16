@@ -1,0 +1,13 @@
+[{
+    "type": "html",
+    "templates": [{
+        "name": "Plain HTML",
+        "file": "template/html/plain.tmp"
+    }]
+}, {
+    "type": "js"
+    "templates": []
+}, {
+    "type": "css"
+    "templates": []
+}]
