@@ -97,7 +97,7 @@
         </div>
         <!-- editor -->
         <div id="editor" class="w3-container">
-            <textarea id="codeZone" class="w3-code w3-round-large w3-card notranslate" style="width: 100%; background-color: #41444e; color: #fff; font-weight: 500; font-family: 'Source Code Pro', monospace; font-size: 18px;" rows="18" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" onchange="ai(document.getElementById('opt').value);localStorage.autoSave=document.getElementById('codeZone').value;" onload='if(localStorage.autoSave) {this.value=localStorage.autoSave}'></textarea>
+            <textarea id="codeZone" class="w3-code w3-round-large w3-card notranslate" style="width: 100%; background-color: #41444e; color: #fff; font-weight: 500; font-family: 'Source Code Pro', monospace; font-size: 18px;" rows="18" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" onchange="ai(document.getElementById('opt').value);localStorage.autoSave=document.getElementById('codeZone').value;"></textarea>
             <select class="w3-select w3-round-large" style="width: 200px" id="opt" onchange="optChange()">
                 <option value="txt" selected>Text</option>
                 <option value="js">JS</option>
@@ -114,6 +114,7 @@
         <script src="js/jscolor.js"></script>
         <script>
             ai();
+            if(localStorage.autoSave) {document.getElementById("codeZone").value=localStorage.autoSave};
             document.getElementById("codeZone").focus();
             new ClipboardJS('.copy');
             if(navigator.userAgent.indexOf('Chrome') > -1) {
