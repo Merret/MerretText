@@ -1,4 +1,6 @@
+var trackWin;
 function liveDemo() {
-var trackWin = window.open();
+trackWin = window.open();
+trackWin.document.write(document.getElementById("codeZone").value);
 document.getElementById("codeZone").onblur=function() {trackWin.document.write(document.getElementById("codeZone").value);};
 }
