@@ -194,6 +194,16 @@
                     document.getElementById('card').style.display = "block";
                 } else if(s == 2) {
                     settingReload();
+                    localStorage.MT.setting = {
+                        "G-BgColor": "#"+document.getElementById("webBg").value,
+                        "E-SlcColor": "::selection{background:#"+document.getElementById("slc").value+"}::-moz-selection{background:#"+document.getElementById("slc").value+"}",
+                        "E-BgColor": "#"+document.getElementById("edtBg").value,
+                        "E-Rows": document.getElementById("edtRs").value,
+                        "F-Type": JSON.parse(document.getElementById("fntTp").value)[0],
+                        "F-Size": document.getElementById("fntSz").value+"px",
+                        "F-Weight": document.getElementById("fntWt").value,
+                        "F-Color": "#"+document.getElementById("fntCr").value
+                    };
                     Barr();
                     document.getElementById('card').style.display = "none";
                 }
