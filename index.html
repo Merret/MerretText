@@ -194,7 +194,7 @@
                     document.getElementById('card').style.display = "block";
                 } else if(s == 2) {
                     settingReload();
-                    localStorage.MT.setting = {
+                    localStorage.MT = JSON.stringify({
                         "G-BgColor": "#"+document.getElementById("webBg").value,
                         "E-SlcColor": "::selection{background:#"+document.getElementById("slc").value+"}::-moz-selection{background:#"+document.getElementById("slc").value+"}",
                         "E-BgColor": "#"+document.getElementById("edtBg").value,
@@ -203,7 +203,7 @@
                         "F-Size": document.getElementById("fntSz").value+"px",
                         "F-Weight": document.getElementById("fntWt").value,
                         "F-Color": "#"+document.getElementById("fntCr").value
-                    };
+                    });
                     Barr();
                     document.getElementById('card').style.display = "none";
                 }
