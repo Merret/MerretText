@@ -124,6 +124,11 @@
                     var win = window.open();win.document.write(document.getElementById('codeZone').value);
                 }
             };
+            if(urldata("beta") == "true" || urldata("beta") == "1") {
+                document.getElementById("htmlPreview").onclick = function() {
+                    liveDemo();
+                }
+            };
             document.getElementById("fntTp").innerHTML = xhr.get("fontList");
             document.body.innerHTML += xhr.get("tmps");
             function ai(docType="txt") {
