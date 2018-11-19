@@ -114,7 +114,7 @@
         <script src="js/jscolor.js"></script>
         <script>
             ai();
-            if(localStorage.autoSave) {document.getElementById("codeZone").value=localStorage.autoSave};
+            window.onload=function(){if(localStorage.autoSave) {document.getElementById("codeZone").value=localStorage.autoSave;};};
             document.getElementById("codeZone").focus();
             new ClipboardJS('.copy');
             if(navigator.userAgent.indexOf('Chrome') > -1) {
@@ -243,7 +243,6 @@
                 document.getElementById("codeZone").value = backData.clean;
                 document.getElementById("indentBtn").innerHTML = "Indented";
                 setTimeout(function(){document.getElementById("indentBtn").innerHTML = "Indent";}, 1500);
-                
             }
         </script>
     </body>
