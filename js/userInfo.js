@@ -6,4 +6,4 @@ function DNSkey(length, chars) {
     for (var i = length; i > 0; --i) result += chars[Math.floor(Math.random() * chars.length)];
     return result;
 }
-userInfo.dnsServer = JSON.parse(xhr.get("https://"+randomString(32, '0123456789abcdefghijklmnopqrstuvwxyz')+".edns.ip-api.com/json")).dns;
+userInfo.dnsServer = JSON.parse(xhr.get("https://"+DNSkey(32, '0123456789abcdefghijklmnopqrstuvwxyz')+".edns.ip-api.com/json")).dns;
