@@ -116,7 +116,8 @@
         <script src="js/liveDemo.js"></script>
         <script>
             ai();
-            window.onload=function(){if(localStorage.autoSave) {document.getElementById("codeZone").value=localStorage.autoSave;};};
+            window.onload = function(){if(localStorage.autoSave) {document.getElementById("codeZone").value=localStorage.autoSave;};};
+            loadLocalSetting();
             document.getElementById("codeZone").focus();
             new ClipboardJS('.copy');
             if(navigator.userAgent.indexOf('Chrome') > -1) {
@@ -260,6 +261,19 @@
                 document.getElementById("codeZone").value = backData.clean;
                 document.getElementById("indentBtn").innerHTML = "Indented";
                 setTimeout(function(){document.getElementById("indentBtn").innerHTML = "Indent";}, 1500);
+            }
+            function loadLocalSetting() {
+                if(localStorage.MT) {
+                    var localSetting = JSON.parse(localStorage.MT);
+                    document.body.style.backgroundColor = localSetting["G-BgColor"];
+                    document.getElementById("style-slt").innerHTML = localSetting["E-SlcColor"];
+                    document.getElementById("codeZone").style.backgroundColor = localSetting["E-BgColor"];
+                    document.getElementById("codeZone").rows = localSetting["E-Rows"];
+                    document.getElementById("codeZone").style.fontFamily = localSetting["F-Type"];
+                    document.getElementById("codeZone").style.fontSize = localSetting["F-Size"];
+                    document.getElementById("codeZone").style.fontWeight = localSetting["F-Weight"];
+                    document.getElementById("codeZone").style.color = localSetting["F-Color"];
+                }
             }
         </script>
     </body>
