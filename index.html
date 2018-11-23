@@ -116,8 +116,7 @@
         <script src="js/liveDemo.js"></script>
         <script>
             ai();
-            window.onload = function(){if(localStorage.autoSave) {document.getElementById("codeZone").value=localStorage.autoSave;};};
-            loadLocalSetting();
+            window.onload = function(){if(localStorage.autoSave) {document.getElementById("codeZone").value=localStorage.autoSave;loadLocalSetting();};};
             document.getElementById("codeZone").focus();
             new ClipboardJS('.copy');
             if(navigator.userAgent.indexOf('Chrome') > -1) {
