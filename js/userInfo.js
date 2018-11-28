@@ -1,9 +1,9 @@
-if(!xhr) {
+if(xhr == undefined) {
     var script = document.createElement('script');
     script.src = 'https://cdn.jsdelivr.net/gh/Merret/UsefulJS@0.4.2/js/xhr.min.js';
     document.head.appendChild(script);
 }
-if(!UAParser) {
+if(UAParser == undefined) {
     var script = document.createElement('script');
     script.src = 'https://cdn.jsdelivr.net/gh/faisalman/ua-parser-js@0.7.19/dist/ua-parser.min.js';
     script.onload = function() {userInfo.device = UAParser(navigator.userAgent);};
