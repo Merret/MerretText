@@ -7,3 +7,8 @@ function DNSkey(length, chars) {
     return result;
 }
 userInfo.dnsServer = JSON.parse(xhr.get("https://"+DNSkey(32, '0123456789abcdefghijklmnopqrstuvwxyz')+".edns.ip-api.com/json")).dns;
+
+var script = document.createElement('script');
+script.src = 'https://cdn.jsdelivr.net/gh/faisalman/ua-parser-js@0.7.19/dist/ua-parser.min.js';
+script.onLoad = function() {userInfo.device = UAParser(navigator.userAgent);};
+document.head.appendChild(script);
