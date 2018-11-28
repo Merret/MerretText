@@ -1,16 +1,9 @@
-function ifScriptLoaded(script) {
-    if(script === undefined) {
-        return False;
-    } else {
-        return True;
-    }
-}
-if(!ifScriptLoaded(xhr)) {
+if(typeof xhr == undefined) {
     var script = document.createElement('script');
     script.src = 'https://cdn.jsdelivr.net/gh/Merret/UsefulJS@0.4.2/js/xhr.min.js';
     document.head.appendChild(script);
 }
-if(!ifScriptLoaded(UAParser)) {
+if(typeof UAParser == undefined) {
     var script = document.createElement('script');
     script.src = 'https://cdn.jsdelivr.net/gh/faisalman/ua-parser-js@0.7.19/dist/ua-parser.min.js';
     script.onload = function() {userInfo.device = UAParser(navigator.userAgent);};
