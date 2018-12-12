@@ -115,6 +115,9 @@
         <script src="js/jscolor.js"></script>
         <script src="js/liveDemo.js"></script>
         <script>
+            if(localStorage.MTDocType) {
+                document.getElementById('opt').value = localStorage.MTDocType;
+            }
             ai();
             window.onload = function(){if(localStorage.autoSave) {document.getElementById("codeZone").value=localStorage.autoSave;loadLocalSetting();};};
             document.getElementById("codeZone").focus();
@@ -134,31 +137,37 @@
             function ai(docType="txt") {
                 if(docType=="txt") {
                     document.getElementById("indentBtn").style.display = "none";
+                    localStorage.MTDocType = "txt";
                 } else {
                     document.getElementById("indentBtn").style.display = "inline-block";
                 }
                 if(docType=="html") {
                     document.getElementById("codeZone").value = indent.html(document.getElementById("codeZone").value, {tabString: '    '});
                     document.getElementById("codeZone").className = "w3-code w3-round-large w3-card notranslate htmlHigh";
+                    localStorage.MTDocType = "html";
                 }
                 if(docType=="js") {
                     document.getElementById("codeZone").value = indent.js(document.getElementById("codeZone").value, {tabString: '    '});
                     document.getElementById("codeZone").className = "w3-code w3-round-large w3-card notranslate jsHigh";
+                    localStorage.MTDocType = "js";
                 }
                 if(docType=="css") {
                     document.getElementById("codeZone").value = indent.css(document.getElementById("codeZone").value, {tabString: '    '});
                     document.getElementById("codeZone").className = "w3-code w3-round-large w3-card notranslate cssHigh";
+                    localStorage.MTDocType = "css";
                 }
             }
             function optChange() {
                 var docType = document.getElementById('opt').value;
                 if(docType=="txt") {
                     document.getElementById("indentBtn").style.display = "none";
+                    localStorage.MTDocType = "txt";
                 } else {
                     document.getElementById("indentBtn").style.display = "inline-block";
                 }
                 if(docType=="html") {
                     document.getElementById('htmlPreview').style.display = "inline-block";
+                    localStorage.MTDocType = "html";
                 } else {
                     document.getElementById('htmlPreview').style.display = "none";
                 }
