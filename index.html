@@ -116,7 +116,16 @@
         <script src="js/liveDemo.js"></script>
         <script>
             if(localStorage.MTDocType) {
-                document.getElementById('opt').value = localStorage.MTDocType;
+                if(localStorage.MTDocType=="html") {
+                    document.getElementById('opt').getElementsByTagName('option')[2].selected = "selected";
+                    document.getElementById('opt').value = "html";
+                } else if(localStorage.MTDocType=="js") {
+                    document.getElementById('opt').getElementsByTagName('option')[1].selected = "selected";
+                    document.getElementById('opt').value = "js";
+                } else if(localStorage.MTDocType=="css") {
+                    document.getElementById('opt').getElementsByTagName('option')[3].selected = "selected";
+                    document.getElementById('opt').value = "css";
+                }
             }
             ai();
             window.onload = function(){if(localStorage.autoSave) {document.getElementById("codeZone").value=localStorage.autoSave;loadLocalSetting();};};
