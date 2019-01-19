@@ -139,7 +139,6 @@
             }
         };
         document.getElementById("fntTp").innerHTML = xhr.get("fontList");
-        document.body.innerHTML += xhr.get("tmps");
         function ai(docType="txt") {
             if(docType=="txt") {
                 document.getElementById("indentBtn").style.display = "none";
@@ -203,9 +202,8 @@
         function newDoc(s=0) {
             if(s == 0) {
                 Barr();
-                document.getElementById('tmps').style.display = "none";
+                document.getElementById('card').style.display = "none";
             } else if(s == 1) {
-                document.getElementById('tmps').style.display = "block";
                 var d = xhr.get("infoCard/newDoc");
                 elm.id("card").innerHTML = d;
                 document.getElementById('card').style.display = "block";
