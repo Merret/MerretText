@@ -257,10 +257,16 @@
                 var fontCss = document.createElement("link");
                 fontCss.href = JSON.parse(document.getElementById("fntTp").value)[1];
                 fontCss.rel = "stylesheet";
-                fontCss.id = JSON.parse(document.getElementById("fntTp").value)[0]
+                fontCss.id = JSON.parse(document.getElementById("fntTp").value)[0];
                 document.head.appendChild(fontCss);
             }
-            if(JSON.parse(document.getElementById("fntTp").value)=="otherFont") {}
+            if(JSON.parse(document.getElementById("fntTp").value)=="otherFont") {
+                var fontCss = document.createElement("link");
+                fontCss.href = prompt("Font CSS File URL?");
+                fontCss.rel = "stylesheet";
+                fontCss.id = "otherFont"+btoa(fontCss.href);
+                document.head.appendChild(fontCss);
+            }
         }
         function advIndent(docType="txt") {
             document.getElementById("indentBtn").innerHTML = "Indenting";
