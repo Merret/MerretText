@@ -9,7 +9,7 @@
         border-collapse: collapse;
         width: 100%;
     }
-    th.tmps {
+    th {
         padding: 8px;
         border-bottom: 1px solid #ddd;
     }
@@ -25,8 +25,14 @@
 </style>
 <script>
     var list = JSON.parse(xhr.get("templateList"));
-    document.getElementById("tmpsTb").innerHTML+='<tr class="tmps"><th class="tmps" id="tmpsHead1">Document Type</th><th class="tmps" id="tmpsHead2"></th></tr>';
+    document.getElementById("tmpsTb").innerHTML+='<tr class="tmps"><th class="" id="tmpsHead1">Document Type</th><th class="tmps" id="tmpsHead2"></th></tr>';
     for(var i = 0; i < list.length; i++) {
-        document.getElementById("tmpsTb").innerHTML+='<tr class="tmps"><td class="tmps">'+list[i].type+'</td><td class="tmps"></td></tr>';
+        document.getElementById("tmpsTb").innerHTML+='<tr class="tmps" onClick="choseFileType('+i+')"><td class="tmps">'+list[i].type+'</td><td class="tmps"></td></tr>';
     }
+	function choseFileType(t) {
+	    document.getElementById("tmpsTb").innerHTML='<tr class="tmps"><th class="" id="tmpsHead1">Document Type</th><th class="tmps" id="tmpsHead2"></th></tr>';
+    for(var i = 0; i < list[t].templates.length; i++) {
+        document.getElementById("tmpsTb").innerHTML+='<tr class="tmps" onClick="elm.id(\'codeZone\').innerHTML=xhr.get('+list[i].templates.file+')"><td class="tmps">'+list[i].templates.name+'</td><td class="tmps"></td></tr>';
+    }
+	}
 </script>
