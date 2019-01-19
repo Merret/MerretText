@@ -205,7 +205,10 @@
                 var list = JSON.parse(xhr.get("templateList"));
                 document.getElementById("tmpsTb").innerHTML+='<tr class="tmps"><th class="" id="tmpsHead1">Document Type</th><th class="tmps" id="tmpsHead2"></th></tr>';
                 for(var i = 0; i < list.length; i++) {
-                    document.getElementById("tmpsTb").innerHTML+='<tr class="tmps" onClick="choseFileType('+i+')"><td class="tmps">'+list[i].type+'</td><td class="tmps"></td></tr>';
+					var tr = document.createElement("tr");
+					tr.className = "tmps";
+					tr.onclick = function() {choseFileType(i)};
+					tr.innerHTML = "<td class='tmps'>"+list[i].type+"</td><td class='tmps'></td>";
                 }
             }
         }
