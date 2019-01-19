@@ -1,294 +1,299 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>MerretText</title>
-        <meta charset="UTF-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta property="og:image" content="icon/icon-512.png">
-        <link rel="Shortcut Icon" type="image/x-icon" href="icon/icon-512.png">
-        <link rel="apple-touch-icon" href="icon/icon-512.png">
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-status-bar-style" content="black">
-        <link rel="apple-touch-startup-image" href="icon/startup.png">
-        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-        <script src="https://cdn.jsdelivr.net/gh/Merret/UsefulJS@0.4.2/js/xhr.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/gh/Merret/UsefulJS@0.4.2/js/element.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/gh/Merret/UsefulJS@0.4.2/js/urldata.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/gh/zebzhao/indent.js@0.3.4/lib/indent.min.js"></script>
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet">
-        <style>
-            .button {
-                cursor: pointer;
-            }
-        </style>
-    </head>
-    <body>
-        <!-- info card -->
-        <div id="card" class="w3-card w3-white" style="z-index: 11; position: fixed; margin:  5% 15%; padding: 5%; width: 70%; height: 80%; display: none">
-            <h2 id="cardHead">Settings</h2>
+<head>
+    <title>MerretText</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:image" content="icon/icon-512.png">
+    <link rel="Shortcut Icon" type="image/x-icon" href="icon/icon-512.png">
+    <link rel="apple-touch-icon" href="icon/icon-512.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-startup-image" href="icon/startup.png">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="https://cdn.jsdelivr.net/gh/Merret/UsefulJS@0.5.3/js/xhr.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Merret/UsefulJS@0.5.3/js/element.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Merret/UsefulJS@0.5.3/js/urldata.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/zebzhao/indent.js@0.3.4/lib/indent.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet">
+    <style>
+        .button {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- info card -->
+    <div id="card" class="w3-card w3-white" style="z-index: 11; position: fixed; margin:  5% 15%; padding: 5%; width: 70%; height: 80%; display: none">
+        <h2 id="cardHead">Settings</h2>
+        <br>
+        <div style="position: relative; max-height: 70%; overflow: auto">
+            <h3>Global</h3>
+            <hr>
+            <table>
+                <tr>
+                    <td><span>Webpage Background Color: </span></td>
+                    <td><input id="webBg" class="jscolor" value="ffffff"></td>
+                </tr>
+            </table>
             <br>
-            <div style="position: relative; max-height: 70%; overflow: auto">
-                <h3>Global</h3>
-                <hr>
-                <table>
-                    <tr>
-                        <td><span>Webpage Background Color: </span></td>
-                        <td><input id="webBg" class="jscolor" value="ffffff"></td>
-                    </tr>
-                </table>
-                <br>
-                <h3>Editor</h3>
-                <hr>
-                <table>
-                    <tr>
-                        <td><span>Selection Color: </span></td>
-                        <td><input id="slc" class="jscolor" value="88aadd"></td>
-                    </tr>
-                    <tr>
-                        <td><span>Editor Background Color: </span></td>
-                        <td><input id="edtBg" class="jscolor" value="41444e"></td>
-                    </tr>
-                    <tr>
-                        <td><span>Rows: </span></td>
-                        <td><input id="edtRs" type="number" value="18"></td>
-                    </tr>
-                </table>
-                <br>
-                <h3>Font</h3>
-                <hr>
-                <table>
-                    <tr>
-                        <td><span>Font Type: </span></td>
-                        <td><select id="fntTp" onchange="fntTpChange()"></select></td>
-                    </tr>
-                    <tr>
-                        <td><span>Font Size: </span></td>
-                        <td><input id="fntSz" type="number" value="18"></td>
-                    </tr>
-                    <tr>
-                        <td><span>Font Weight: </span></td>
-                        <td><input id="fntWt" type="number" step="100" value="500"></td>
-                    </tr>
-                    <tr>
-                        <td><span>Font Color: </span></td>
-                        <td><input id="fntCr" class="jscolor" value="ffffff"></td>
-                    </tr>
-                </table>
-                <br>
-            </div>
-            <div style="position: absolute; bottom: 0; right: 0">
-                <button class="w3-button w3-round-large w3-margin w3-green" onclick="setting(2)">Apply</button>
-                <button class="w3-button w3-round-large w3-margin w3-red" onclick="setting(0)">Cancel</button>
-            </div>
+            <h3>Editor</h3>
+            <hr>
+            <table>
+                <tr>
+                    <td><span>Selection Color: </span></td>
+                    <td><input id="slc" class="jscolor" value="88aadd"></td>
+                </tr>
+                <tr>
+                    <td><span>Editor Background Color: </span></td>
+                    <td><input id="edtBg" class="jscolor" value="41444e"></td>
+                </tr>
+                <tr>
+                    <td><span>Rows: </span></td>
+                    <td><input id="edtRs" type="number" value="18"></td>
+                </tr>
+            </table>
+            <br>
+            <h3>Font</h3>
+            <hr>
+            <table>
+                <tr>
+                    <td><span>Font Type: </span></td>
+                    <td><select id="fntTp" onchange="fntTpChange()"></select></td>
+                </tr>
+                <tr>
+                    <td><span>Font Size: </span></td>
+                    <td><input id="fntSz" type="number" value="18"></td>
+                </tr>
+                <tr>
+                    <td><span>Font Weight: </span></td>
+                    <td><input id="fntWt" type="number" step="100" value="500"></td>
+                </tr>
+                <tr>
+                    <td><span>Font Color: </span></td>
+                    <td><input id="fntCr" class="jscolor" value="ffffff"></td>
+                </tr>
+            </table>
+            <br>
         </div>
-        <!-- side bar -->
-        <div id="sB" class="w3-sidebar w3-bar-block w3-white w3-animate-left" style="display: none; z-index: 5">
-            <button class="w3-bar-item w3-button" onclick="closeMenu(); Barr()">Close</button>
-            <a href="javascript:closeMenu();newDoc(1)" class="w3-bar-item w3-button">New Doc</a>
-            <a href="javascript:closeMenu();setting(1)" class="w3-bar-item w3-button">Setting</a>
-            <a href="license" class="w3-bar-item w3-button">License</a>
+        <div style="position: absolute; bottom: 0; right: 0">
+            <button class="w3-button w3-round-large w3-margin w3-green" onclick="setting(2)">Apply</button>
+            <button class="w3-button w3-round-large w3-margin w3-red" onclick="setting(0)">Cancel</button>
         </div>
-        <div class="w3-overlay w3-animate-opacity" style="padding: 50%; display: none" onclick="closeAll()" id="sBol"></div>
-        <!-- head bar -->
-        <div id="bar">
-            <i class="fas fa-bars fa-2x button w3-margin" onclick="openMenu()"></i>
-            <h3 class="w3-margin w3-right" style="display: inline-block; font-family: Arial, Helvetica">Merret<b>Text</b></h3>
-        </div>
-        <!-- editor -->
-        <div id="editor" class="w3-container">
-            <textarea id="codeZone" class="w3-code w3-round-large w3-card notranslate" style="width: 100%; background-color: #41444e; color: #fff; font-weight: 500; font-family: 'Source Code Pro', monospace; font-size: 18px;" rows="18" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" onchange="ai(document.getElementById('opt').value);localStorage.autoSave=document.getElementById('codeZone').value;"></textarea>
-            <select class="w3-select w3-round-large" style="width: 200px" id="opt" onchange="optChange()">
-                <option value="txt">Text</option>
-                <option value="js">JS</option>
-                <option value="html">HTML</option>
-                <option value="css">CSS</option>
-            </select>
-            <button id="indentBtn" class="w3-button w3-round-large" onclick="advIndent(document.getElementById('opt').value)">Indent</button>
-            <button id="copyBtn" class="w3-button w3-round-large copy" data-clipboard-target="#codeZone" onclick="this.innerHTML='Copied';setTimeout(function() {document.getElementById('copyBtn').innerHTML='Copy'}, 1500)">Copy</button>
-            <button id="htmlPreview" class="w3-button w3-round-large" onclick="htmlPreview()" style="display: none">Preview</button>
-        </div>
-        <style id="style-slt">
-            ::selection{background:#8ad}::-moz-selection{background:#8ad}
-        </style>
-        <script src="js/jscolor.js"></script>
-        <script src="js/liveDemo.js"></script>
-        <script>
-            if(localStorage.MTDocType) {
-                if(localStorage.MTDocType=="html") {
-                    document.getElementById('opt').selectedIndex = 2;
-                } else if(localStorage.MTDocType=="js") {
-                    document.getElementById('opt').selectedIndex = 1;
-                } else if(localStorage.MTDocType=="css") {
-                    document.getElementById('opt').selectedIndex = 3;
-                }
+    </div>
+    <!-- side bar -->
+    <div id="sB" class="w3-sidebar w3-bar-block w3-white w3-animate-left" style="display: none; z-index: 5">
+        <button class="w3-bar-item w3-button" onclick="closeMenu(); Barr()">Close</button>
+        <a href="javascript:closeMenu();newDoc(1)" class="w3-bar-item w3-button">New Doc</a>
+        <a href="javascript:closeMenu();setting(1)" class="w3-bar-item w3-button">Setting</a>
+        <a href="license" class="w3-bar-item w3-button">License</a>
+    </div>
+    <div class="w3-overlay w3-animate-opacity" style="padding: 50%; display: none" onclick="closeAll()" id="sBol"></div>
+    <!-- head bar -->
+    <div id="bar">
+        <i class="fas fa-bars fa-2x button w3-margin" onclick="openMenu()"></i>
+        <h3 class="w3-margin w3-right" style="display: inline-block; font-family: Arial, Helvetica">Merret<b>Text</b></h3>
+    </div>
+    <!-- editor -->
+    <div id="editor" class="w3-container">
+        <textarea id="codeZone" class="w3-code w3-round-large w3-card notranslate" style="width: 100%; background-color: #41444e; color: #fff; font-weight: 500; font-family: 'Source Code Pro', monospace; font-size: 18px;" rows="18" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" onchange="ai(document.getElementById('opt').value);localStorage.autoSave=document.getElementById('codeZone').value;"></textarea>
+        <select class="w3-select w3-round-large" style="width: 200px" id="opt" onchange="optChange()">
+            <option value="txt">Text</option>
+            <option value="js">JS</option>
+            <option value="html">HTML</option>
+            <option value="css">CSS</option>
+        </select>
+        <button id="indentBtn" class="w3-button w3-round-large" onclick="advIndent(document.getElementById('opt').value)">Indent</button>
+        <button id="copyBtn" class="w3-button w3-round-large copy" data-clipboard-target="#codeZone" onclick="this.innerHTML='Copied';setTimeout(function() {document.getElementById('copyBtn').innerHTML='Copy'}, 1500)">Copy</button>
+        <button id="htmlPreview" class="w3-button w3-round-large" onclick="htmlPreview()" style="display: none">Preview</button>
+    </div>
+    <style id="style-slt">
+        ::selection{background:#8ad}::-moz-selection{background:#8ad}
+    </style>
+    <script src="js/jscolor.js"></script>
+    <script src="js/liveDemo.js"></script>
+    <script>
+        if(localStorage.MTDocType) {
+            if(localStorage.MTDocType=="html") {
+                document.getElementById('opt').selectedIndex = 2;
+            } else if(localStorage.MTDocType=="js") {
+                document.getElementById('opt').selectedIndex = 1;
+            } else if(localStorage.MTDocType=="css") {
+                document.getElementById('opt').selectedIndex = 3;
             }
-            ai();
-            window.onload = function(){if(localStorage.autoSave) {document.getElementById("codeZone").value=localStorage.autoSave;loadLocalSetting();};};
-            document.getElementById("codeZone").focus();
-            new ClipboardJS('.copy');
-            if(navigator.userAgent.indexOf('Chrome') > -1) {
-                document.getElementById("htmlPreview").onclick = function() {
-                    var win = window.open();win.document.write(document.getElementById('codeZone').value);
-                }
-            };
-            if(urldata("beta") == "true" || urldata("beta") == "1") {
-                document.getElementById("htmlPreview").onclick = function() {
-                    liveDemo();
-                }
-            };
-            document.getElementById("fntTp").innerHTML = xhr.get("fontList");
-            document.body.innerHTML += xhr.get("tmps");
-            function ai(docType="txt") {
-                if(docType=="txt") {
-                    document.getElementById("indentBtn").style.display = "none";
-                    localStorage.MTDocType = "txt";
-                } else {
-                    document.getElementById("indentBtn").style.display = "inline-block";
-                }
-                if(docType=="html") {
-                    document.getElementById("codeZone").value = indent.html(document.getElementById("codeZone").value, {tabString: '    '});
-                    document.getElementById("codeZone").className = "w3-code w3-round-large w3-card notranslate htmlHigh";
-                    localStorage.MTDocType = "html";
-                }
-                if(docType=="js") {
-                    document.getElementById("codeZone").value = indent.js(document.getElementById("codeZone").value, {tabString: '    '});
-                    document.getElementById("codeZone").className = "w3-code w3-round-large w3-card notranslate jsHigh";
-                    localStorage.MTDocType = "js";
-                }
-                if(docType=="css") {
-                    document.getElementById("codeZone").value = indent.css(document.getElementById("codeZone").value, {tabString: '    '});
-                    document.getElementById("codeZone").className = "w3-code w3-round-large w3-card notranslate cssHigh";
-                    localStorage.MTDocType = "css";
-                }
+        }
+        ai();
+        window.onload = function(){if(localStorage.autoSave) {document.getElementById("codeZone").value=localStorage.autoSave;loadLocalSetting();};};
+        document.getElementById("codeZone").focus();
+        new ClipboardJS('.copy');
+        if(navigator.userAgent.indexOf('Chrome') > -1) {
+            document.getElementById("htmlPreview").onclick = function() {
+                var win = window.open();win.document.write(document.getElementById('codeZone').value);
             }
-            function optChange() {
-                var docType = document.getElementById('opt').value;
-                if(docType=="txt") {
-                    document.getElementById("indentBtn").style.display = "none";
-                    localStorage.MTDocType = "txt";
-                } else {
-                    document.getElementById("indentBtn").style.display = "inline-block";
-                }
-                if(docType=="html") {
-                    document.getElementById('htmlPreview').style.display = "inline-block";
-                    localStorage.MTDocType = "html";
-                } else {
-                    document.getElementById('htmlPreview').style.display = "none";
-                }
+        };
+        if(urldata("beta") == "true" || urldata("beta") == "1") {
+            document.getElementById("htmlPreview").onclick = function() {
+                liveDemo();
             }
-            function htmlPreview() {
-                window.open("data:text/html;charset=UTF-8,"+document.getElementById("codeZone").value);
+        };
+        document.getElementById("fntTp").innerHTML = xhr.get("fontList");
+        document.body.innerHTML += xhr.get("tmps");
+        function ai(docType="txt") {
+            if(docType=="txt") {
+                document.getElementById("indentBtn").style.display = "none";
+                localStorage.MTDocType = "txt";
+            } else {
+                document.getElementById("indentBtn").style.display = "inline-block";
             }
-            function openMenu() {
-                document.getElementById('sB').style.display = "block";
-                Barr();
+            if(docType=="html") {
+                document.getElementById("codeZone").value = indent.html(document.getElementById("codeZone").value, {tabString: '    '});
+                document.getElementById("codeZone").className = "w3-code w3-round-large w3-card notranslate htmlHigh";
+                localStorage.MTDocType = "html";
             }
-            function closeMenu() {
-                document.getElementById('sB').style.display = "none";
+            if(docType=="js") {
+                document.getElementById("codeZone").value = indent.js(document.getElementById("codeZone").value, {tabString: '    '});
+                document.getElementById("codeZone").className = "w3-code w3-round-large w3-card notranslate jsHigh";
+                localStorage.MTDocType = "js";
             }
-            function Barr() {
-                if(document.getElementById('sBol').style.display == "none") {
-                    document.getElementById('sBol').style.display = "block";
-                } else {
-                    document.getElementById('sBol').style.display = "none";
-                }
+            if(docType=="css") {
+                document.getElementById("codeZone").value = indent.css(document.getElementById("codeZone").value, {tabString: '    '});
+                document.getElementById("codeZone").className = "w3-code w3-round-large w3-card notranslate cssHigh";
+                localStorage.MTDocType = "css";
             }
-            function closeAll() {
+        }
+        function optChange() {
+            var docType = document.getElementById('opt').value;
+            if(docType=="txt") {
+                document.getElementById("indentBtn").style.display = "none";
+                localStorage.MTDocType = "txt";
+            } else {
+                document.getElementById("indentBtn").style.display = "inline-block";
+            }
+            if(docType=="html") {
+                document.getElementById('htmlPreview').style.display = "inline-block";
+                localStorage.MTDocType = "html";
+            } else {
+                document.getElementById('htmlPreview').style.display = "none";
+            }
+        }
+        function htmlPreview() {
+            window.open("data:text/html;charset=UTF-8,"+document.getElementById("codeZone").value);
+        }
+        function openMenu() {
+            document.getElementById('sB').style.display = "block";
+            Barr();
+        }
+        function closeMenu() {
+            document.getElementById('sB').style.display = "none";
+        }
+        function Barr() {
+            if(document.getElementById('sBol').style.display == "none") {
+                document.getElementById('sBol').style.display = "block";
+            } else {
                 document.getElementById('sBol').style.display = "none";
+            }
+        }
+        function closeAll() {
+            document.getElementById('sBol').style.display = "none";
+            document.getElementById('card').style.display = "none";
+            document.getElementById('sB').style.display = "none";
+        }
+        function newDoc(s=0) {
+            if(s == 0) {
+                Barr();
+                document.getElementById('tmps').style.display = "none";
+            } else if(s == 1) {
+                document.getElementById('tmps').style.display = "block";
+                var d = xhr.get("infoCard/newDoc");
+                elm.id("card").innerHTML = d;
+                document.getElementById('card').style.display = "block";
+            }
+        }
+        function setting(s=0) {
+            if(s == 0) {
+                Barr();
                 document.getElementById('card').style.display = "none";
-                document.getElementById('sB').style.display = "none";
+            } else if(s == 1) {
+                var d = xhr.get("infoCard/setting");
+                elm.id("card").innerHTML = d;
+                document.getElementById('card').style.display = "block";
+            } else if(s == 2) {
+                settingReload();
+                localStorage.MT = JSON.stringify({
+                    "G-BgColor": "#"+document.getElementById("webBg").value,
+                    "E-SlcColor": "::selection{background:#"+document.getElementById("slc").value+"}::-moz-selection{background:#"+document.getElementById("slc").value+"}",
+                    "E-BgColor": "#"+document.getElementById("edtBg").value,
+                    "E-Rows": document.getElementById("edtRs").value,
+                    "F-Type": JSON.parse(document.getElementById("fntTp").value)[0],
+                    "F-Size": document.getElementById("fntSz").value+"px",
+                    "F-Weight": document.getElementById("fntWt").value,
+                    "F-Color": "#"+document.getElementById("fntCr").value
+                });
+                Barr();
+                document.getElementById('card').style.display = "none";
             }
-            function newDoc(s=0) {
-                if(s == 0) {
-                    Barr();
-                    document.getElementById('tmps').style.display = "none";
-                } else if(s == 1) {
-                    document.getElementById('tmps').style.display = "block";
-                }
+        }
+        function settingReload() {
+            /* Global Settings */
+            document.body.style.backgroundColor = "#"+document.getElementById("webBg").value;
+            /* Editor Settings */
+            document.getElementById("style-slt").innerHTML = "::selection{background:#"+document.getElementById("slc").value+"}::-moz-selection{background:#"+document.getElementById("slc").value+"}";
+            document.getElementById("codeZone").style.backgroundColor = "#"+document.getElementById("edtBg").value;
+            document.getElementById("codeZone").rows = document.getElementById("edtRs").value;
+            /* Font Settings */
+            document.getElementById("codeZone").style.fontFamily = JSON.parse(document.getElementById("fntTp").value)[0];
+            document.getElementById("codeZone").style.fontSize = document.getElementById("fntSz").value+"px";
+            document.getElementById("codeZone").style.fontWeight = document.getElementById("fntWt").value;
+            document.getElementById("codeZone").style.color = "#"+document.getElementById("fntCr").value;
+        }
+        function fntTpChange() {
+            if(!document.getElementById(JSON.parse(document.getElementById("fntTp").value)[0])) {
+                var fontCss = document.createElement("link");
+                fontCss.href = JSON.parse(document.getElementById("fntTp").value)[1];
+                fontCss.rel = "stylesheet";
+                fontCss.id = JSON.parse(document.getElementById("fntTp").value)[0]
+                document.head.appendChild(fontCss);
             }
-            function setting(s=0) {
-                if(s == 0) {
-                    Barr();
-                    document.getElementById('card').style.display = "none";
-                } else if(s == 1) {
-                    document.getElementById('card').style.display = "block";
-                } else if(s == 2) {
-                    settingReload();
-                    localStorage.MT = JSON.stringify({
-                        "G-BgColor": "#"+document.getElementById("webBg").value,
-                        "E-SlcColor": "::selection{background:#"+document.getElementById("slc").value+"}::-moz-selection{background:#"+document.getElementById("slc").value+"}",
-                        "E-BgColor": "#"+document.getElementById("edtBg").value,
-                        "E-Rows": document.getElementById("edtRs").value,
-                        "F-Type": JSON.parse(document.getElementById("fntTp").value)[0],
-                        "F-Size": document.getElementById("fntSz").value+"px",
-                        "F-Weight": document.getElementById("fntWt").value,
-                        "F-Color": "#"+document.getElementById("fntCr").value
-                    });
-                    Barr();
-                    document.getElementById('card').style.display = "none";
-                }
+            if(JSON.parse(document.getElementById("fntTp").value)=="otherFont") {}
+        }
+        function advIndent(docType="txt") {
+            document.getElementById("indentBtn").innerHTML = "Indenting";
+            if(docType=="txt") {
+                document.getElementById("codeZone").value = indent.html(document.getElementById("codeZone").value, {tabString: '    '});
+            } else {
+                var source = indent.html(document.getElementById("codeZone").value, {tabString: ''});
             }
-            function settingReload() {
-                /* Global Settings */
-                document.body.style.backgroundColor = "#"+document.getElementById("webBg").value;
-                /* Editor Settings */
-                document.getElementById("style-slt").innerHTML = "::selection{background:#"+document.getElementById("slc").value+"}::-moz-selection{background:#"+document.getElementById("slc").value+"}";
-                document.getElementById("codeZone").style.backgroundColor = "#"+document.getElementById("edtBg").value;
-                document.getElementById("codeZone").rows = document.getElementById("edtRs").value;
-                /* Font Settings */
-                document.getElementById("codeZone").style.fontFamily = JSON.parse(document.getElementById("fntTp").value)[0];
-                document.getElementById("codeZone").style.fontSize = document.getElementById("fntSz").value+"px";
-                document.getElementById("codeZone").style.fontWeight = document.getElementById("fntWt").value;
-                document.getElementById("codeZone").style.color = "#"+document.getElementById("fntCr").value;
+            if(docType=="html") {
+                var xhrData = "code="+source+"&allow-proprietary-attribs=true&indent=4";
+                var backData = JSON.parse(xhr.post("https://www.10bestdesign.com/dirtymarkup/api/html", encodeURI(xhrData), "application/x-www-form-urlencoded"));
             }
-            function fntTpChange() {
-                if(!document.getElementById(JSON.parse(document.getElementById("fntTp").value)[0])) {
-                    var fontCss = document.createElement("link");
-                    fontCss.href = JSON.parse(document.getElementById("fntTp").value)[1];
-                    fontCss.rel = "stylesheet";
-                    fontCss.id = JSON.parse(document.getElementById("fntTp").value)[0]
-                    document.head.appendChild(fontCss);
-                }
-                if(JSON.parse(document.getElementById("fntTp").value)=="otherFont") {}
+            if(docType=="js") {
+                var xhrData = "code="+source;
+                var backData = JSON.parse(xhr.post("https://www.10bestdesign.com/dirtymarkup/api/js", encodeURI(xhrData), "application/x-www-form-urlencoded"));
             }
-            function advIndent(docType="txt") {
-                document.getElementById("indentBtn").innerHTML = "Indenting";
-                if(docType=="txt") {
-                    document.getElementById("codeZone").value = indent.html(document.getElementById("codeZone").value, {tabString: '    '});
-                } else {
-                    var source = indent.html(document.getElementById("codeZone").value, {tabString: ''});
-                }
-                if(docType=="html") {
-                    var xhrData = "code="+source+"&allow-proprietary-attribs=true&indent=4";
-                    var backData = JSON.parse(xhr.post("https://www.10bestdesign.com/dirtymarkup/api/html", encodeURI(xhrData), "application/x-www-form-urlencoded"));
-                }
-                if(docType=="js") {
-                    var xhrData = "code="+source;
-                    var backData = JSON.parse(xhr.post("https://www.10bestdesign.com/dirtymarkup/api/js", encodeURI(xhrData), "application/x-www-form-urlencoded"));
-                }
-                if(docType=="css") {
-                    var xhrData = "code="+source;
-                    var backData = JSON.parse(xhr.post("https://www.10bestdesign.com/dirtymarkup/api/css", encodeURI(xhrData), "application/x-www-form-urlencoded"));
-                }
-                document.getElementById("codeZone").value = backData.clean;
-                document.getElementById("indentBtn").innerHTML = "Indented";
-                setTimeout(function(){document.getElementById("indentBtn").innerHTML = "Indent";}, 1500);
+            if(docType=="css") {
+                var xhrData = "code="+source;
+                var backData = JSON.parse(xhr.post("https://www.10bestdesign.com/dirtymarkup/api/css", encodeURI(xhrData), "application/x-www-form-urlencoded"));
             }
-            function loadLocalSetting() {
-                if(localStorage.MT) {
-                    var localSetting = JSON.parse(localStorage.MT);
-                    document.body.style.backgroundColor = localSetting["G-BgColor"];
-                    document.getElementById("style-slt").innerHTML = localSetting["E-SlcColor"];
-                    document.getElementById("codeZone").style.backgroundColor = localSetting["E-BgColor"];
-                    document.getElementById("codeZone").rows = localSetting["E-Rows"];
-                    document.getElementById("codeZone").style.fontFamily = localSetting["F-Type"];
-                    document.getElementById("codeZone").style.fontSize = localSetting["F-Size"];
-                    document.getElementById("codeZone").style.fontWeight = localSetting["F-Weight"];
-                    document.getElementById("codeZone").style.color = localSetting["F-Color"];
-                }
+            document.getElementById("codeZone").value = backData.clean;
+            document.getElementById("indentBtn").innerHTML = "Indented";
+            setTimeout(function(){document.getElementById("indentBtn").innerHTML = "Indent";}, 1500);
+        }
+        function loadLocalSetting() {
+            if(localStorage.MT) {
+                var localSetting = JSON.parse(localStorage.MT);
+                document.body.style.backgroundColor = localSetting["G-BgColor"];
+                document.getElementById("style-slt").innerHTML = localSetting["E-SlcColor"];
+                document.getElementById("codeZone").style.backgroundColor = localSetting["E-BgColor"];
+                document.getElementById("codeZone").rows = localSetting["E-Rows"];
+                document.getElementById("codeZone").style.fontFamily = localSetting["F-Type"];
+                document.getElementById("codeZone").style.fontSize = localSetting["F-Size"];
+                document.getElementById("codeZone").style.fontWeight = localSetting["F-Weight"];
+                document.getElementById("codeZone").style.color = localSetting["F-Color"];
             }
-        </script>
-    </body>
+        }
+    </script>
+</body>
 </html>
