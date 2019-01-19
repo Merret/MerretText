@@ -317,7 +317,12 @@
         function choseFileType(t) {
             document.getElementById("tmpsTb").innerHTML='<tr class="tmps"><th class="" id="tmpsHead1">Document Type</th><th class="tmps" id="tmpsHead2"></th></tr>';
             for(var i = 0; i < list[t].templates.length; i++) {
-                document.getElementById("tmpsTb").innerHTML+='<tr class="tmps" onClick="elm.id(\'codeZone\').innerHTML=xhr.get('+list[i].templates.file+')"><td class="tmps">'+list[i].templates.name+'</td><td class="tmps"></td></tr>';
+			    var tr = document.createElement("tr");
+			    tr.className = "tmps";
+			    tr["data-i"] = i;
+			    tr.onclick = function() {elm.id('codeZone').innerHTML=xhr.get(list[this["data-i"]].templates.file)};
+			    tr.innerHTML = "<td class='tmps'>"+list[i].type+"</td><td class='tmps'></td>";
+			    elm.id("tmpsTb").appendChild(tr);
             }
         }
     </script>
