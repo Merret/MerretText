@@ -245,7 +245,7 @@
             document.getElementById("codeZone").style.backgroundColor = "#"+document.getElementById("edtBg").value;
             document.getElementById("codeZone").rows = document.getElementById("edtRs").value;
             /* Font Settings */
-            if(!elm.id("fntTp").value=="otherFont") {
+            if(elm.id("fntTp").value!="otherFont") {
                 document.getElementById("codeZone").style.fontFamily = JSON.parse(document.getElementById("fntTp").value)[0];
             } else {
                 document.getElementById("codeZone").style.fontFamily = localStorage.MTCF;
