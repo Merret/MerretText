@@ -260,7 +260,7 @@
                 fontCss.id = JSON.parse(document.getElementById("fntTp").value)[0];
                 document.head.appendChild(fontCss);
             }
-            if(JSON.parse(document.getElementById("fntTp").value)=="otherFont") {
+            if(elm.id("fntTp").value=="otherFont") {
                 var fontCss = document.createElement("link");
                 fontCss.href = prompt("Font CSS File URL?");
                 fontCss.rel = "stylesheet";
