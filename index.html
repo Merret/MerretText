@@ -207,9 +207,8 @@
                 for(var i = 0; i < list.length; i++) {
 					var tr = document.createElement("tr");
 					tr.className = "tmps";
-					tr["data-i"] = i;
 					tr.id = "t-"+i;
-					tr.onclick = function() {choseFileType(this["data-i"])};
+					tr.onclick = function() {choseFileType(this.id.substr(2))};
 					tr.innerHTML = "<td class='tmps'>"+list[i].type+"</td><td class='tmps'></td>";
 					elm.id("tmpsTb").appendChild(tr);
                 }
