@@ -1,116 +1,116 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>MerretText</title>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta property="og:image" content="icon/icon-512.png">
-<link rel="Shortcut Icon" type="image/x-icon" href="icon/icon-512.png">
-<link rel="apple-touch-icon" href="icon/icon-512.png">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black">
-<link rel="apple-touch-startup-image" href="icon/startup.png">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<script src="https://cdn.jsdelivr.net/gh/Merret/UsefulJS@0.5.3/js/xhr.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/Merret/UsefulJS@0.5.3/js/element.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/Merret/UsefulJS@0.5.3/js/urldata.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/zebzhao/indent.js@0.3.4/lib/indent.min.js"></script>
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-<link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet">
-<style>
-.button {
-	cursor: pointer;
-}
-</style>
+    <title>MerretText</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:image" content="icon/icon-512.png">
+    <link rel="Shortcut Icon" type="image/x-icon" href="icon/icon-512.png">
+    <link rel="apple-touch-icon" href="icon/icon-512.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-startup-image" href="icon/startup.png">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="https://cdn.jsdelivr.net/gh/Merret/UsefulJS@0.5.3/js/xhr.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Merret/UsefulJS@0.5.3/js/element.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Merret/UsefulJS@0.5.3/js/urldata.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/zebzhao/indent.js@0.3.4/lib/indent.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet">
+    <style>
+        .button {
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-<!-- info card -->
-<div id="card" class="w3-card w3-white" style="z-index: 11; position: fixed; margin:  5% 15%; padding: 5%; width: 70%; height: 80%; display: none">
-  <h2 id="cardHead">Settings</h2>
-  <br>
-  <div style="position: relative; max-height: 70%; overflow: auto">
-    <h3>Global</h3>
-    <hr>
-    <table>
-      <tr>
-        <td><span>Webpage Background Color: </span></td>
-        <td><input id="webBg" class="jscolor" value="ffffff"></td>
-      </tr>
-    </table>
-    <br>
-    <h3>Editor</h3>
-    <hr>
-    <table>
-      <tr>
-        <td><span>Selection Color: </span></td>
-        <td><input id="slc" class="jscolor" value="88aadd"></td>
-      </tr>
-      <tr>
-        <td><span>Editor Background Color: </span></td>
-        <td><input id="edtBg" class="jscolor" value="41444e"></td>
-      </tr>
-      <tr>
-        <td><span>Rows: </span></td>
-        <td><input id="edtRs" type="number" value="18"></td>
-      </tr>
-    </table>
-    <br>
-    <h3>Font</h3>
-    <hr>
-    <table>
-      <tr>
-        <td><span>Font Type: </span></td>
-        <td><select id="fntTp" onchange="fntTpChange()">
-          </select></td>
-      </tr>
-      <tr>
-        <td><span>Font Size: </span></td>
-        <td><input id="fntSz" type="number" value="18"></td>
-      </tr>
-      <tr>
-        <td><span>Font Weight: </span></td>
-        <td><input id="fntWt" type="number" step="100" value="500"></td>
-      </tr>
-      <tr>
-        <td><span>Font Color: </span></td>
-        <td><input id="fntCr" class="jscolor" value="ffffff"></td>
-      </tr>
-    </table>
-    <br>
-  </div>
-  <div style="position: absolute; bottom: 0; right: 0">
-    <button class="w3-button w3-round-large w3-margin w3-green" onclick="setting(2)">Apply</button>
-    <button class="w3-button w3-round-large w3-margin w3-red" onclick="setting(0)">Cancel</button>
-  </div>
-</div>
-<!-- side bar -->
-<div id="sB" class="w3-sidebar w3-bar-block w3-white w3-animate-left" style="display: none; z-index: 5">
-  <button class="w3-bar-item w3-button" onclick="closeMenu(); Barr()">Close</button>
-  <a href="javascript:closeMenu();newDoc(1)" class="w3-bar-item w3-button">New Doc</a> <a href="javascript:closeMenu();setting(1)" class="w3-bar-item w3-button">Setting</a> <a href="license" class="w3-bar-item w3-button">License</a> </div>
-<div class="w3-overlay w3-animate-opacity" style="padding: 50%; display: none" onclick="closeAll()" id="sBol"></div>
-<!-- head bar -->
-<div id="bar"> <i class="fas fa-bars fa-2x button w3-margin" onclick="openMenu()"></i>
-  <h3 class="w3-margin w3-right" style="display: inline-block; font-family: Arial, Helvetica">Merret<b>Text</b></h3>
-</div>
-<!-- editor -->
-<div id="editor" class="w3-container">
-  <textarea id="codeZone" class="w3-code w3-round-large w3-card notranslate" style="width: 100%; background-color: #41444e; color: #fff; font-weight: 500; font-family: 'Source Code Pro', monospace; font-size: 18px;" rows="18" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" onchange="ai(elm.id('opt').value);localStorage.autoSave=elm.id('codeZone').value;"></textarea>
-  <select class="w3-select w3-round-large" style="width: 200px" id="opt" onchange="optChange()">
-    <option value="txt">Text</option>
-    <option value="js">JS</option>
-    <option value="html">HTML</option>
-    <option value="css">CSS</option>
-  </select>
-  <button id="indentBtn" class="w3-button w3-round-large" onclick="advIndent(elm.id('opt').value)">Indent</button>
-  <button id="copyBtn" class="w3-button w3-round-large copy" data-clipboard-target="#codeZone" onclick="this.innerHTML='Copied';setTimeout(function() {elm.id('copyBtn').innerHTML='Copy'}, 1500)">Copy</button>
-  <button id="htmlPreview" class="w3-button w3-round-large" onclick="htmlPreview()" style="display: none">Preview</button>
-</div>
-<style id="style-slt">
+    <!-- info card -->
+    <div id="card" class="w3-card w3-white" style="z-index: 11; position: fixed; margin:  5% 15%; padding: 5%; width: 70%; height: 80%; display: none">
+        <h2 id="cardHead">Settings</h2>
+        <br>
+        <div style="position: relative; max-height: 70%; overflow: auto">
+            <h3>Global</h3>
+            <hr>
+            <table>
+                <tr>
+                    <td><span>Webpage Background Color: </span></td>
+                    <td><input id="webBg" class="jscolor" value="ffffff"></td>
+                </tr>
+            </table>
+            <br>
+            <h3>Editor</h3>
+            <hr>
+            <table>
+                <tr>
+                    <td><span>Selection Color: </span></td>
+                    <td><input id="slc" class="jscolor" value="88aadd"></td>
+                </tr>
+                <tr>
+                    <td><span>Editor Background Color: </span></td>
+                    <td><input id="edtBg" class="jscolor" value="41444e"></td>
+                </tr>
+                <tr>
+                    <td><span>Rows: </span></td>
+                    <td><input id="edtRs" type="number" value="18"></td>
+                </tr>
+            </table>
+            <br>
+            <h3>Font</h3>
+            <hr>
+            <table>
+                <tr>
+                    <td><span>Font Type: </span></td>
+                    <td><select id="fntTp" onchange="fntTpChange()">
+                        </select></td>
+                </tr>
+                <tr>
+                    <td><span>Font Size: </span></td>
+                    <td><input id="fntSz" type="number" value="18"></td>
+                </tr>
+                <tr>
+                    <td><span>Font Weight: </span></td>
+                    <td><input id="fntWt" type="number" step="100" value="500"></td>
+                </tr>
+                <tr>
+                    <td><span>Font Color: </span></td>
+                    <td><input id="fntCr" class="jscolor" value="ffffff"></td>
+                </tr>
+            </table>
+            <br>
+        </div>
+        <div style="position: absolute; bottom: 0; right: 0">
+            <button class="w3-button w3-round-large w3-margin w3-green" onclick="setting(2)">Apply</button>
+            <button class="w3-button w3-round-large w3-margin w3-red" onclick="setting(0)">Cancel</button>
+        </div>
+    </div>
+    <!-- side bar -->
+    <div id="sB" class="w3-sidebar w3-bar-block w3-white w3-animate-left" style="display: none; z-index: 5">
+        <button class="w3-bar-item w3-button" onclick="closeMenu(); Barr()">Close</button>
+        <a href="javascript:closeMenu();newDoc(1)" class="w3-bar-item w3-button">New Doc</a> <a href="javascript:closeMenu();setting(1)" class="w3-bar-item w3-button">Setting</a> <a href="license" class="w3-bar-item w3-button">License</a> </div>
+    <div class="w3-overlay w3-animate-opacity" style="padding: 50%; display: none" onclick="closeAll()" id="sBol"></div>
+    <!-- head bar -->
+    <div id="bar"> <i class="fas fa-bars fa-2x button w3-margin" onclick="openMenu()"></i>
+        <h3 class="w3-margin w3-right" style="display: inline-block; font-family: Arial, Helvetica">Merret<b>Text</b></h3>
+    </div>
+    <!-- editor -->
+    <div id="editor" class="w3-container">
+        <textarea id="codeZone" class="w3-code w3-round-large w3-card notranslate" style="width: 100%; background-color: #41444e; color: #fff; font-weight: 500; font-family: 'Source Code Pro', monospace; font-size: 18px;" rows="18" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" onchange="ai(elm.id('opt').value);localStorage.autoSave=elm.id('codeZone').value;"></textarea>
+        <select class="w3-select w3-round-large" style="width: 200px" id="opt" onchange="optChange()">
+            <option value="txt">Text</option>
+            <option value="js">JS</option>
+            <option value="html">HTML</option>
+            <option value="css">CSS</option>
+        </select>
+        <button id="indentBtn" class="w3-button w3-round-large" onclick="advIndent(elm.id('opt').value)">Indent</button>
+        <button id="copyBtn" class="w3-button w3-round-large copy" data-clipboard-target="#codeZone" onclick="this.innerHTML='Copied';setTimeout(function() {elm.id('copyBtn').innerHTML='Copy'}, 1500)">Copy</button>
+        <button id="htmlPreview" class="w3-button w3-round-large" onclick="htmlPreview()" style="display: none">Preview</button>
+    </div>
+    <style id="style-slt">
         ::selection{background:#8ad}::-moz-selection{background:#8ad}
     </style>
-<script src="js/liveDemo.js"></script> 
-<script>
+    <script src="js/liveDemo.js"></script>
+    <script>
         if(localStorage.MTDocType) {
             if(localStorage.MTDocType=="html") {
                 elm.id('opt').selectedIndex = 2;
@@ -202,10 +202,10 @@
                 var d = xhr.get("infoCard/newDoc");
                 elm.id("card").innerHTML = d;
                 elm.id('card').style.display = "block";
-                var list = xhr.json("templateList");
-                elm.id("tmpsTb").innerHTML+='<tr class="tmps"><th class="tmps" id="tmpsHead1">Document Type</th><th class="tmps" id="tmpsHead2"></th></tr>';
+                var list = JSON.parse(xhr.get("templateList"));
+                document.getElementById("tmpsTb").innerHTML+='<tr class="tmps"><th class="" id="tmpsHead1">Document Type</th><th class="tmps" id="tmpsHead2"></th></tr>';
                 for(var i = 0; i < list.length; i++) {
-                    elm.id("tmpsTb").innerHTML+='<tr class="tmps"><td class="tmps">'+list[i].type+'</td><td class="tmps"></td></tr>';
+                    document.getElementById("tmpsTb").innerHTML+='<tr class="tmps" onClick="choseFileType('+i+')"><td class="tmps">'+list[i].type+'</td><td class="tmps"></td></tr>';
                 }
             }
         }
@@ -220,8 +220,8 @@
                 elm.id("fntTp").innerHTML = xhr.get("fontList");
             } else if(s == 2) {
                 settingReload();
-				var tf;
-				if(elm.id("fntTp").value!="otherFont") {
+                var tf;
+                if(elm.id("fntTp").value!="otherFont") {
                     tf = JSON.parse(elm.id("fntTp").value)[0];
                 } else {
                     tf = localStorage.MTCF;
@@ -262,12 +262,7 @@
                 var fontCss = document.createElement("style");
                 var fontFile = prompt("Font File URL? (Support .woff & .woff2)");
                 localStorage.MTCF = "CustomFont-"+btoa(fontFile);
-                fontCss.appendChild(document.createTextNode("\
-@font-face {\
-    font-family: " + localStorage.MTCF + ";\
-    src: url('" + fontFile + "');\
-}\
-"));
+                fontCss.appendChild(document.createTextNode("@font-face {font-family: " + localStorage.MTCF + ";src: url('" + fontFile + "');}"));
                 fontCss.id = "CustomFont-"+btoa(fontFile);
                 document.head.appendChild(fontCss);
             }else if(!elm.id(JSON.parse(elm.id("fntTp").value)[0])) {
@@ -312,6 +307,12 @@
                 elm.id("codeZone").style.fontSize = localSetting["F-Size"];
                 elm.id("codeZone").style.fontWeight = localSetting["F-Weight"];
                 elm.id("codeZone").style.color = localSetting["F-Color"];
+            }
+        }
+        function choseFileType(t) {
+            document.getElementById("tmpsTb").innerHTML='<tr class="tmps"><th class="" id="tmpsHead1">Document Type</th><th class="tmps" id="tmpsHead2"></th></tr>';
+            for(var i = 0; i < list[t].templates.length; i++) {
+                document.getElementById("tmpsTb").innerHTML+='<tr class="tmps" onClick="elm.id(\'codeZone\').innerHTML=xhr.get('+list[i].templates.file+')"><td class="tmps">'+list[i].templates.name+'</td><td class="tmps"></td></tr>';
             }
         }
     </script>
