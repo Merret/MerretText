@@ -255,19 +255,18 @@
             document.getElementById("codeZone").style.color = "#"+document.getElementById("fntCr").value;
         }
         function fntTpChange() {
-            if(!document.getElementById(JSON.parse(document.getElementById("fntTp").value)[0])) {
-                var fontCss = document.createElement("link");
-                fontCss.href = JSON.parse(document.getElementById("fntTp").value)[1];
-                fontCss.rel = "stylesheet";
-                fontCss.id = JSON.parse(document.getElementById("fntTp").value)[0];
-                document.head.appendChild(fontCss);
-            }
             if(elm.id("fntTp").value=="otherFont") {
                 var fontCss = document.createElement("style");
                 var fontFile = prompt("Font File URL? (Support .woff & .woff2)");
                 localStorage.MTCF = "CustomFont-"+btoa(fontFile);
                 fontCss.innerHTML = "@font-face {font-family: '"+localStorage.MTCF+"';font-style: normal;font-weight: 500;src: url("+fontFile+");}";
                 fontCss.id = "CustomFont-"+btoa(fontFile);
+                document.head.appendChild(fontCss);
+            }else if(!document.getElementById(JSON.parse(document.getElementById("fntTp").value)[0])) {
+                var fontCss = document.createElement("link");
+                fontCss.href = JSON.parse(document.getElementById("fntTp").value)[1];
+                fontCss.rel = "stylesheet";
+                fontCss.id = JSON.parse(document.getElementById("fntTp").value)[0];
                 document.head.appendChild(fontCss);
             }
         }
