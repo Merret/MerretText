@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="https://cdn.jsdelivr.net/combine/gh/Merret/UsefulJS@0.5.3/js/align.min.js,gh/Merret/UsefulJS@0.5.3/js/element.min.js,gh/Merret/UsefulJS@0.5.3/js/urldata.min.js,gh/Merret/UsefulJS@0.5.3/js/userInfo.min.js,gh/Merret/UsefulJS@0.5.3/js/xhr.min.js"></script>
+</head>
+<body>
+    
+    <script></script>
+</body>
+</html>
