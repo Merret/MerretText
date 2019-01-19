@@ -206,6 +206,11 @@
                 var d = xhr.get("infoCard/newDoc");
                 elm.id("card").innerHTML = d;
                 document.getElementById('card').style.display = "block";
+                var list = xhr.json("templateList");
+                document.getElementById("tmpsTb").innerHTML+='<tr class="tmps"><th class="tmps" id="tmpsHead1">Document Type</th><th class="tmps" id="tmpsHead2"></th></tr>';
+                for(var i = 0; i < list.length; i++) {
+                    document.getElementById("tmpsTb").innerHTML+='<tr class="tmps"><td class="tmps">'+list[i].type+'</td><td class="tmps"></td></tr>';
+                }
             }
         }
         function setting(s=0) {
