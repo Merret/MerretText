@@ -21,6 +21,7 @@
     tr.tmps:hover {
         background-color: #f5f5f5;
         border-left: #2196F3;
+	    cursor: pointer;
     }
 </style>
 <script>
