@@ -217,6 +217,7 @@
                 elm.id("card").innerHTML = d;
                 document.getElementById('card').style.display = "block";
                 document.getElementById("fntTp").innerHTML = xhr.get("fontList");
+                jsc.jscolor.lookupClass = 'jscolor';
             } else if(s == 2) {
                 settingReload();
                 localStorage.MT = JSON.stringify({
