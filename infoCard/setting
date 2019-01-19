@@ -1,0 +1,55 @@
+<h2 id="cardHead">Settings</h2>
+<br>
+<div style="position: relative; max-height: 70%; overflow: auto">
+    <h3>Global</h3>
+    <hr>
+    <table>
+        <tr>
+            <td><span>Webpage Background Color: </span></td>
+            <td><input id="webBg" class="jscolor" value="ffffff"></td>
+        </tr>
+    </table>
+    <br>
+    <h3>Editor</h3>
+    <hr>
+    <table>
+        <tr>
+            <td><span>Selection Color: </span></td>
+            <td><input id="slc" class="jscolor" value="88aadd"></td>
+        </tr>
+        <tr>
+            <td><span>Editor Background Color: </span></td>
+            <td><input id="edtBg" class="jscolor" value="41444e"></td>
+        </tr>
+        <tr>
+            <td><span>Rows: </span></td>
+            <td><input id="edtRs" type="number" value="18"></td>
+        </tr>
+    </table>
+    <br>
+    <h3>Font</h3>
+    <hr>
+    <table>
+        <tr>
+            <td><span>Font Type: </span></td>
+            <td><select id="fntTp" onchange="fntTpChange()"></select></td>
+        </tr>
+        <tr>
+            <td><span>Font Size: </span></td>
+            <td><input id="fntSz" type="number" value="18"></td>
+        </tr>
+        <tr>
+            <td><span>Font Weight: </span></td>
+            <td><input id="fntWt" type="number" step="100" value="500"></td>
+        </tr>
+        <tr>
+            <td><span>Font Color: </span></td>
+            <td><input id="fntCr" class="jscolor" value="ffffff"></td>
+        </tr>
+    </table>
+    <br>
+</div>
+<div style="position: absolute; bottom: 0; right: 0">
+    <button class="w3-button w3-round-large w3-margin w3-green" onclick="setting(2)">Apply</button>
+    <button class="w3-button w3-round-large w3-margin w3-red" onclick="setting(0)">Cancel</button>
+</div>
