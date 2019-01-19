@@ -1,12 +1,23 @@
 [{
     "type": "html",
-    "templates": [{
+    "templates": [
+    {
         "name": "Plain HTML",
         "file": "template/html/plain.tmp"
-    }]
+    },
+    {
+        "name": "Plain + Script",
+        "file": "template/html/plain+script.tmp"
+    }
+    ]
 }, {
     "type": "js",
-    "templates": []
+    "templates": [
+    {
+        "name": "Use Strict",
+        "file": "template/js/use-strict.tmp"
+    }
+    ]
 }, {
     "type": "css",
     "templates": []
