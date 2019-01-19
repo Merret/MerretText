@@ -5,9 +5,9 @@
         "file": "template/html/plain.tmp"
     }]
 }, {
-    "type": "js"
+    "type": "js",
     "templates": []
 }, {
-    "type": "css"
+    "type": "css",
     "templates": []
 }]
