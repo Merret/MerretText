@@ -1,24 +1,28 @@
-[{
-    "type": "html",
-    "templates": [
+[
     {
-        "name": "Plain HTML",
-        "file": "template/html/plain.tmp"
+        "type": "html",
+        "templates": [
+            {
+                "name": "Plain HTML",
+                "file": "template/html/plain.tmp"
+            },
+            {
+                "name": "Plain + Script",
+                "file": "template/html/plain+script.tmp"
+            }
+        ]
     },
     {
-        "name": "Plain + Script",
-        "file": "template/html/plain+script.tmp"
-    }
-    ]
-}, {
-    "type": "js",
-    "templates": [
+        "type": "js",
+        "templates": [
+            {
+                "name": "Use Strict",
+                "file": "template/js/use-strict.tmp"
+            }
+        ]
+    },
     {
-        "name": "Use Strict",
-        "file": "template/js/use-strict.tmp"
+        "type": "css",
+        "templates": []
     }
-    ]
-}, {
-    "type": "css",
-    "templates": []
-}]
+]
