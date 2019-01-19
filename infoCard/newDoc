@@ -1,0 +1,36 @@
+<h2 id="cardHead">New Document</h2>
+<br>
+<div style="position: relative; max-height: 70%; overflow: auto">
+        <table id="tmpsTb" class="tmps" style="width: 100%;text-align: center;"></table>
+    </div>
+</div>
+<style>
+    table.tmps {
+        border-collapse: collapse;
+        width: 100%;
+    }
+    th.tmps {
+        padding: 8px;
+        border-bottom: 1px solid #ddd;
+    }
+    td.tmps {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+        word-break: break-all;
+    }
+    tr.tmps:hover {
+        background-color: #f5f5f5;
+        border-left: #2196F3;
+    }
+</style>
+<script>
+    var list = JSON.parse(xhr.get("templateList"));
+    document.getElementById("tmpsTb").innerHTML+='<tr class="tmps"><th class="tmps" id="tmpsHead1">Document Type</th><th class="tmps" id="tmpsHead2"></th></tr>';
+    for(var i = 0; i < list.length; i++) {
+        document.getElementById("tmpsTb").innerHTML+='<tr class="tmps"><td class="tmps">list[i].type</td><td class="tmps"></td></tr>';
+    }
+    /*for(var i=list.list.length-1; i>=0; i--) {
+        document.getElementById("tb").innerHTML+="<tr><td class='w3-padding w3-round'><a href='"+list.list[i].url+"'>"+title+"</a></td><td width='30%'><i class='fas fa-clone copy button w3-text-blue w3-border w3-border-blue w3-round w3-padding w3-hover-shadow w3-margin' data-clipboard-text='"+list.list[i].url+"'></i><a target='_blank' href='"+list.list[i].url+"'><i class='fas fa-compass button w3-text-green w3-border w3-border-green w3-round w3-padding w3-hover-shadow w3-margin'></i></a></td></tr>";
+    }*/
+</script>
