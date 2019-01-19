@@ -321,7 +321,7 @@
 			    var tr = document.createElement("tr");
 			    tr.className = "tmps";
 			    tr.id = "t-"+i;
-			    tr.onclick = function() {elm.id('codeZone').innerHTML=xhr.get(list[t].templates[Number(this.id.substr(2))].file)};
+			    tr.onclick = function() {elm.id('codeZone').innerHTML=xhr.get(list[t].templates[Number(this.id.substr(2))].file);Barr();elm.id('card').style.display = "none";};
 			    tr.innerHTML = "<td class='tmps'>"+list[t].templates[i].name+"</td><td class='tmps'></td>";
 			    elm.id("tmpsTb").appendChild(tr);
             }
