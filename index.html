@@ -112,7 +112,6 @@
     <style id="style-slt">
         ::selection{background:#8ad}::-moz-selection{background:#8ad}
     </style>
-    <script src="js/jscolor.js"></script>
     <script src="js/liveDemo.js"></script>
     <script>
         if(localStorage.MTDocType) {
@@ -222,7 +221,6 @@
                 elm.id("card").innerHTML = d;
                 document.getElementById('card').style.display = "block";
                 document.getElementById("fntTp").innerHTML = xhr.get("fontList");
-                jsc.jscolor.lookupClass = 'jscolor';
             } else if(s == 2) {
                 settingReload();
                 localStorage.MT = JSON.stringify({
