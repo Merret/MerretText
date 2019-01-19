@@ -9,6 +9,14 @@
             {
                 "name": "Plain + Script",
                 "file": "template/html/plain+script.tmp"
+            },
+            {
+                "name": "W3.CSS",
+                "file": "template/html/w3css.tmp"
+            },
+            {
+                "name": "Merret Website Develope Kit",
+                "file": "template/html/MWDK.tmp"
             }
         ]
     },
