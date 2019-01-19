@@ -208,6 +208,7 @@
 					var tr = document.createElement("tr");
 					tr.className = "tmps";
 					tr["data-i"] = i;
+					tr.id = "t-"+i;
 					tr.onclick = function() {choseFileType(this["data-i"])};
 					tr.innerHTML = "<td class='tmps'>"+list[i].type+"</td><td class='tmps'></td>";
 					elm.id("tmpsTb").appendChild(tr);
@@ -315,6 +316,7 @@
             }
         }
         function choseFileType(t) {
+            var list = JSON.parse(xhr.get("templateList"));
             document.getElementById("tmpsTb").innerHTML='<tr class="tmps"><th class="" id="tmpsHead1">Document Type</th><th class="tmps" id="tmpsHead2"></th></tr>';
             for(var i = 0; i < list[t].templates.length; i++) {
 			    var tr = document.createElement("tr");
