@@ -53,3 +53,4 @@
     <button class="w3-button w3-round-large w3-margin w3-green" onclick="setting(2)">Apply</button>
     <button class="w3-button w3-round-large w3-margin w3-red" onclick="setting(0)">Cancel</button>
 </div>
+<script src="js/jscolor.js"></script>
