@@ -245,7 +245,11 @@
             document.getElementById("codeZone").style.backgroundColor = "#"+document.getElementById("edtBg").value;
             document.getElementById("codeZone").rows = document.getElementById("edtRs").value;
             /* Font Settings */
-            document.getElementById("codeZone").style.fontFamily = JSON.parse(document.getElementById("fntTp").value)[0];
+            if(!elm.id("fntTp").value=="otherFont") {
+                document.getElementById("codeZone").style.fontFamily = JSON.parse(document.getElementById("fntTp").value)[0];
+            } else {
+                document.getElementById("codeZone").style.fontFamily = localStorage.MTCF;
+            }
             document.getElementById("codeZone").style.fontSize = document.getElementById("fntSz").value+"px";
             document.getElementById("codeZone").style.fontWeight = document.getElementById("fntWt").value;
             document.getElementById("codeZone").style.color = "#"+document.getElementById("fntCr").value;
@@ -259,10 +263,11 @@
                 document.head.appendChild(fontCss);
             }
             if(elm.id("fntTp").value=="otherFont") {
-                var fontCss = document.createElement("link");
-                fontCss.href = prompt("Font CSS File URL?");
-                fontCss.rel = "stylesheet";
-                fontCss.id = "otherFont"+btoa(fontCss.href);
+                var fontCss = document.createElement("style");
+                var fontFile = prompt("Font File URL? (Support .woff & .woff2)");
+                localStorage.MTCF = "CustomFont-"+btoa(fontFile);
+                fontCss.innerHTML = "@font-face {font-family: '"+localStorage.MTCF+"';font-style: normal;font-weight: 500;src: url("+fontFile+");}";
+                fontCss.id = "CustomFont-"+btoa(fontFile);
                 document.head.appendChild(fontCss);
             }
         }
