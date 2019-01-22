@@ -381,7 +381,7 @@
         }
         function openFile(fileID, fileType) {
             if(confirm("Would You Like To Open This File? \n(The Corrent File Will Be Deleted If You Haven't Saved It!)")) {
-                elm.id("codeZone").value = (xhr.json("https://api.myjson.com/bins/"+fileID))[0];
+                elm.id("codeZone").value = decodeURI((xhr.json("https://api.myjson.com/bins/"+fileID))[0]);
                 localStorage.MTnowOpen = fileID;
                 switch (fileType) {
                     case "css":
@@ -399,7 +399,7 @@
             }
         }
         function saveRemoteFile(fileID = localStorage.MTnowOpen) {
-            if('["'+elm.id("codeZone").value+'"]' == xhr.put("https://api.myjson.com/bins/"+fileID, '["'+elm.id("codeZone").value+'"]')) {
+            if('["'+elm.id("codeZone").value+'"]' == xhr.put("https://api.myjson.com/bins/"+fileID, '["'+encodeURI(elm.id("codeZone").value)+'"]')) {
                 return true;
             } else {
                 return false;
