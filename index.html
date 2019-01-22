@@ -336,7 +336,9 @@
         }
         function createRemoteID() {
             if(!localStorage.MTremoteID) {
-                localStorage.MTremoteID = JSON.parse(xhr.post("https://api.myjson.com/bins", JSON.stringify([{"id": JSON.parse(xhr.post("https://api.myjson.com/bins", '[""]')).uri.substr(28), "name": "TheFirstFile", "type": "txt", "time": new Date().toJSON()}]))).uri.substr(28);
+                var no = JSON.parse(xhr.post("https://api.myjson.com/bins", '[""]')).uri.substr(28);
+                localStorage.MTnowOpen = no;
+                localStorage.MTremoteID = JSON.parse(xhr.post("https://api.myjson.com/bins", JSON.stringify([{"id": no, "name": "TheFirstFile", "type": "txt", "time": new Date().toJSON()}]))).uri.substr(28);
             } else {
                 return true;
             }
@@ -365,7 +367,7 @@
         function openFile(fileID, fileType) {
             if(confirm("Would You Like To Open This File? \n(The Corrent File Will Be Deleted If You Haven't Saved It!)")) {
                 elm.id("codeZone").value = (xhr.json("https://api.myjson.com/bins/"+fileID))[0];
-
+                localStorage.MTnowOpen = fileID;
                 switch (fileType) {
                     case "css":
                         elm.id("opt").value = "CSS";
@@ -379,6 +381,13 @@
                     default:
                         elm.id("opt").value = "Text";
                 }
+            }
+        }
+        function saveRemoteFile(fileID = localStorage.MTnowOpen) {
+            if('["'+elm.id("codeZone").value+'"]' = xhr.put("https://api.myjson.com/bins/"+fileID, '["'+elm.id("codeZone").value+'"]')) {
+                return true;
+            } else {
+                return false;
             }
         }
     </script>
