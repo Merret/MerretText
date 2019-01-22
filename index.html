@@ -360,7 +360,7 @@
             for(var i = 0; i < list.length; i++) {
                 var n = document.createElement("a");
                 n.innerHTML = list[i].name;
-                n.href = "javascript:openFile(" + list[i].id + "," + list[i].type + ")";
+                n.href = "javascript:openFile('" + list[i].id + "','" + list[i].type + "')";
                 c.appendChild(n);
             }
         }
