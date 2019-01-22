@@ -329,7 +329,21 @@
 			    var tr = document.createElement("tr");
 			    tr.className = "tmps";
 			    tr.id = "t-"+i;
-			    tr.onclick = function() {elm.id('codeZone').value=xhr.get(list[t].templates[Number(this.id.substr(2))].file);Barr();elm.id('card').style.display = "none";};
+                var x = tr["data-type"];
+                switch (i) {
+                    case 0:
+                        x = "html";
+                        break;
+                    case 1:
+                        x = "js"
+                        break;
+                    case 2:
+                        x = "css";
+                        break;
+                    default:
+
+                }
+			    tr.onclick = function() {elm.id('codeZone').value=xhr.get(list[t].templates[Number(this.id.substr(2))].file);Barr();elm.id('card').style.display = "none";createRemoteFile(,x);};
 			    tr.innerHTML = "<td class='tmps'>"+list[t].templates[i].name+"</td><td class='tmps'></td>";
 			    elm.id("tmpsTb").appendChild(tr);
             }
@@ -386,6 +400,23 @@
         }
         function saveRemoteFile(fileID = localStorage.MTnowOpen) {
             if('["'+elm.id("codeZone").value+'"]' == xhr.put("https://api.myjson.com/bins/"+fileID, '["'+elm.id("codeZone").value+'"]')) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        function createRemoteFile(name = "New File ", type = "txt") {
+            var l = xhr.json("https://api.myjson.com/bins/"+localStorage.MTremoteID);
+            var cf = JSON.parse(xhr.post("https://api.myjson.com/bins", '[""]').uri.substr(28);
+            localStorage.MTnowOpen = cf;
+            nF = {
+                "id": cf,
+                "name": name + l.length,
+                "type": type,
+                "time": new Date().toJSON()
+            };
+            l.push(nF);
+            if(JSON.stringify(l) == xhr.put("https://api.myjson.com/bins/"+localStorage.MTremoteID, JSON.stringify(l))) {
                 return true;
             } else {
                 return false;
