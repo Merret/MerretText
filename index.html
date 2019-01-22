@@ -87,7 +87,13 @@
     <!-- side bar -->
     <div id="sB" class="w3-sidebar w3-bar-block w3-white w3-animate-left" style="display: none; z-index: 5">
         <button class="w3-bar-item w3-button" onclick="closeMenu(); Barr()">Close</button>
-        <a href="javascript:closeMenu();newDoc(1)" class="w3-bar-item w3-button">New Doc</a> <a href="javascript:closeMenu();setting(1)" class="w3-bar-item w3-button">Setting</a> <a href="license" class="w3-bar-item w3-button">License</a> </div>
+        <a href="javascript:closeMenu();newDoc(1)" class="w3-bar-item w3-button">New Doc</a>
+        <a href="javascript:closeMenu();setting(1)" class="w3-bar-item w3-button">Setting</a>
+        <a href="license" class="w3-bar-item w3-button">License</a>
+        <hr style="width:80%;text-align:left;margin-left:10%">
+        <div id="FileList">
+        </div>
+    </div>
     <div class="w3-overlay w3-animate-opacity" style="padding: 50%; display: none" onclick="closeAll()" id="sBol"></div>
     <!-- head bar -->
     <div id="bar"> <i class="fas fa-bars fa-2x button w3-margin" onclick="openMenu()"></i>
@@ -113,13 +119,15 @@
     <script>
         if(localStorage.MTDocType) {
             if(localStorage.MTDocType=="html") {
-                elm.id('opt').selectedIndex = 2;
+                elm.id('opt').value = "HTML";
             } else if(localStorage.MTDocType=="js") {
-                elm.id('opt').selectedIndex = 1;
+                elm.id('opt').value = "JS";
             } else if(localStorage.MTDocType=="css") {
-                elm.id('opt').selectedIndex = 3;
+                elm.id('opt').value = "CSS";
             }
         }
+        createRemoteID();
+        buildFileList();
         ai();
         window.onload = function(){if(localStorage.autoSave) {elm.id("codeZone").value=localStorage.autoSave;loadLocalSetting();};};
         elm.id("codeZone").focus();
@@ -324,6 +332,53 @@
 			    tr.onclick = function() {elm.id('codeZone').value=xhr.get(list[t].templates[Number(this.id.substr(2))].file);Barr();elm.id('card').style.display = "none";};
 			    tr.innerHTML = "<td class='tmps'>"+list[t].templates[i].name+"</td><td class='tmps'></td>";
 			    elm.id("tmpsTb").appendChild(tr);
+            }
+        }
+        function createRemoteID() {
+            if(!localStorage.MTremoteID) {
+                localStorage.MTremoteID = JSON.parse(xhr.post("https://api.myjson.com/bins", JSON.stringify([{"id": JSON.parse(xhr.post("https://api.myjson.com/bins", '[""]')).uri.substr(28), "name": "TheFirstFile", "type": "txt", "time": new Date().toJSON()}]))).uri.substr(28);
+            } else {
+                return true;
+            }
+        }
+        function getRemoteFileList(id = localStorage.MTremoteID) {
+            return xhr.json("https://api.myjson.com/bins/"+id);
+        }
+        function updataRemoteFileList(id = localStorage.MTremoteID, data = localStorage.MTlocalFileList) {
+            if(JSON.stringify(data) = xhr.put("https://api.myjson.com/bins/"+id, JSON.stringify(data))) {
+                return true;
+                buildFileList();
+            } else {
+                return false;
+            }
+        }
+        function buildFileList(list) {
+            var c = elm.id("FileList");
+            c.innerHTML = "";
+            for(var i = 0; i < list.length; i++) {
+                var n = document.createElement("a");
+                n.innerHTML = list[i].name;
+                n.href = "javascript:openFile(" + list[i].id + "," + list[i].type + ")";
+                c.appendChild(n);
+            }
+        }
+        function openFile(fileID, fileType) {
+            if(confirm("Would You Like To Open This File? \n(The Corrent File Will Be Deleted If You Haven't Saved It!)")) {
+                elm.id("codeZone").value = (xhr.json("https://api.myjson.com/bins/"+fileID))[0];
+
+                switch (fileType) {
+                    case "css":
+                        elm.id("opt").value = "CSS";
+                        break;
+                    case "js":
+                        elm.id("opt").value = "JS";
+                        break;
+                    case "html":
+                        elm.id("opt").value = "JS";
+                        break;
+                    default:
+                        elm.id("opt").value = "Text";
+                }
             }
         }
     </script>
