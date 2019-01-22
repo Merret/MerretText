@@ -347,7 +347,7 @@
             return xhr.json("https://api.myjson.com/bins/"+id);
         }
         function updataRemoteFileList(id = localStorage.MTremoteID, data = localStorage.MTlocalFileList) {
-            if(JSON.stringify(data) = xhr.put("https://api.myjson.com/bins/"+id, JSON.stringify(data))) {
+            if(JSON.stringify(data) == xhr.put("https://api.myjson.com/bins/"+id, JSON.stringify(data))) {
                 return true;
                 buildFileList();
             } else {
@@ -384,7 +384,7 @@
             }
         }
         function saveRemoteFile(fileID = localStorage.MTnowOpen) {
-            if('["'+elm.id("codeZone").value+'"]' = xhr.put("https://api.myjson.com/bins/"+fileID, '["'+elm.id("codeZone").value+'"]')) {
+            if('["'+elm.id("codeZone").value+'"]' == xhr.put("https://api.myjson.com/bins/"+fileID, '["'+elm.id("codeZone").value+'"]')) {
                 return true;
             } else {
                 return false;
