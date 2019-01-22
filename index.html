@@ -407,7 +407,7 @@
         }
         function createRemoteFile(name = "New File ", type = "txt") {
             var l = xhr.json("https://api.myjson.com/bins/"+localStorage.MTremoteID);
-            var cf = JSON.parse(xhr.post("https://api.myjson.com/bins", '[""]').uri.substr(28));
+            var cf = JSON.parse(xhr.post("https://api.myjson.com/bins", '[""]')).uri.substr(28);
             localStorage.MTnowOpen = cf;
             nF = {
                 "id": cf,
