@@ -343,7 +343,7 @@
                     default:
 
                 }
-			    tr.onclick = function() {elm.id('codeZone').value=xhr.get(list[t].templates[Number(this.id.substr(2))].file);Barr();elm.id('card').style.display = "none";createRemoteFile(,x);};
+			    tr.onclick = function() {elm.id('codeZone').value=xhr.get(list[t].templates[Number(this.id.substr(2))].file);Barr();elm.id('card').style.display = "none";createRemoteFile("New File - " + new Date().getTime(),x);};
 			    tr.innerHTML = "<td class='tmps'>"+list[t].templates[i].name+"</td><td class='tmps'></td>";
 			    elm.id("tmpsTb").appendChild(tr);
             }
