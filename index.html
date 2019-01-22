@@ -354,7 +354,7 @@
                 return false;
             }
         }
-        function buildFileList(list) {
+        function buildFileList(list = getRemoteFileList()) {
             var c = elm.id("FileList");
             c.innerHTML = "";
             for(var i = 0; i < list.length; i++) {
